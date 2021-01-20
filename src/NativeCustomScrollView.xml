@@ -8,9 +8,16 @@
     <icon/>
     <properties>
         <propertyGroup caption="General">
-            <property key="yourName" type="string" required="false">
-                <caption>Name</caption>
-                <description>Enter your name</description>
+            <property key="scrollToTopAttr" type="attribute">
+                <caption>Scroll to top</caption>
+                <description>If true, scroll to top. Widget will set to false again</description>
+                <attributeTypes>
+                    <attributeType name="Boolean"/>
+                </attributeTypes>
+            </property>
+            <property key="content" type="widgets">
+                <caption>Content</caption>
+                <description></description>
             </property>
         </propertyGroup>
     </properties>
