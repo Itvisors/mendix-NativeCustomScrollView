@@ -20,7 +20,7 @@ public class NativeAppContext
 	 */
 	public enum MemberNames
 	{
-		ScrollToTop("ScrollToTop"),
+		ScrollToTopTrigger("ScrollToTopTrigger"),
 		NativeAppContext_TestSet("TestModule.NativeAppContext_TestSet"),
 		CurrentBlock("TestModule.CurrentBlock");
 
@@ -110,39 +110,39 @@ public class NativeAppContext
 		com.mendix.core.Core.delete(context, getMendixObject());
 	}
 	/**
-	 * @return value of ScrollToTop
+	 * @return value of ScrollToTopTrigger
 	 */
-	public final java.lang.Boolean getScrollToTop()
+	public final java.util.Date getScrollToTopTrigger()
 	{
-		return getScrollToTop(getContext());
+		return getScrollToTopTrigger(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of ScrollToTop
+	 * @return value of ScrollToTopTrigger
 	 */
-	public final java.lang.Boolean getScrollToTop(com.mendix.systemwideinterfaces.core.IContext context)
+	public final java.util.Date getScrollToTopTrigger(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		return (java.lang.Boolean) getMendixObject().getValue(context, MemberNames.ScrollToTop.toString());
+		return (java.util.Date) getMendixObject().getValue(context, MemberNames.ScrollToTopTrigger.toString());
 	}
 
 	/**
-	 * Set value of ScrollToTop
-	 * @param scrolltotop
+	 * Set value of ScrollToTopTrigger
+	 * @param scrolltotoptrigger
 	 */
-	public final void setScrollToTop(java.lang.Boolean scrolltotop)
+	public final void setScrollToTopTrigger(java.util.Date scrolltotoptrigger)
 	{
-		setScrollToTop(getContext(), scrolltotop);
+		setScrollToTopTrigger(getContext(), scrolltotoptrigger);
 	}
 
 	/**
-	 * Set value of ScrollToTop
+	 * Set value of ScrollToTopTrigger
 	 * @param context
-	 * @param scrolltotop
+	 * @param scrolltotoptrigger
 	 */
-	public final void setScrollToTop(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean scrolltotop)
+	public final void setScrollToTopTrigger(com.mendix.systemwideinterfaces.core.IContext context, java.util.Date scrolltotoptrigger)
 	{
-		getMendixObject().setValue(context, MemberNames.ScrollToTop.toString(), scrolltotop);
+		getMendixObject().setValue(context, MemberNames.ScrollToTopTrigger.toString(), scrolltotoptrigger);
 	}
 
 	/**

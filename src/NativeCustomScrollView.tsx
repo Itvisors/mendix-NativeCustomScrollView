@@ -12,7 +12,7 @@ export interface CustomStyle extends Style {
 
 export class NativeCustomScrollView extends Component<NativeCustomScrollViewProps<CustomStyle>> {
     render(): ReactNode {
-        const { scrollToTopAttr, content, style } = this.props;
-        return <CustomScrollView scrollToTopAttr={scrollToTopAttr} content={content} style={style} />;
+        const { scrollToTopTriggerAttr, content, style } = this.props;
+        return <CustomScrollView scrollToTopTriggerAttr={scrollToTopTriggerAttr} content={content} style={style} />;
     }
 }

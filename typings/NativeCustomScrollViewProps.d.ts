@@ -9,13 +9,13 @@ import { EditableValue } from "mendix";
 export interface NativeCustomScrollViewProps<Style> {
     name: string;
     style: Style[];
-    scrollToTopAttr: EditableValue<boolean>;
+    scrollToTopTriggerAttr: EditableValue<Date>;
     content: ReactNode;
 }
 
 export interface NativeCustomScrollViewPreviewProps {
     class: string;
     style: string;
-    scrollToTopAttr: string;
+    scrollToTopTriggerAttr: string;
     content: { widgetCount: number; renderer: ComponentType };
 }

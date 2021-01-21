@@ -8,11 +8,11 @@
     <icon/>
     <properties>
         <propertyGroup caption="General">
-            <property key="scrollToTopAttr" type="attribute">
+            <property key="scrollToTopTriggerAttr" type="attribute">
                 <caption>Scroll to top</caption>
-                <description>If true, scroll to top. Widget will set to false again</description>
+                <description>Update the date in your logic to make the widget scroll to top. No boolean because turning if off would trigger another render</description>
                 <attributeTypes>
-                    <attributeType name="Boolean"/>
+                    <attributeType name="DateTime"/>
                 </attributeTypes>
             </property>
             <property key="content" type="widgets">
