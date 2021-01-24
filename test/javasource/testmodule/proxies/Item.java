@@ -22,7 +22,8 @@ public class Item
 	{
 		Name("Name"),
 		SeqNbr("SeqNbr"),
-		Item_Block("TestModule.Item_Block");
+		Item_Block("TestModule.Item_Block"),
+		Item_TestSet("TestModule.Item_TestSet");
 
 		private java.lang.String metaName;
 
@@ -230,6 +231,49 @@ public class Item
 			getMendixObject().setValue(context, MemberNames.Item_Block.toString(), null);
 		else
 			getMendixObject().setValue(context, MemberNames.Item_Block.toString(), item_block.getMendixObject().getId());
+	}
+
+	/**
+	 * @return value of Item_TestSet
+	 */
+	public final testmodule.proxies.TestSet getItem_TestSet() throws com.mendix.core.CoreException
+	{
+		return getItem_TestSet(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Item_TestSet
+	 */
+	public final testmodule.proxies.TestSet getItem_TestSet(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		testmodule.proxies.TestSet result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Item_TestSet.toString());
+		if (identifier != null)
+			result = testmodule.proxies.TestSet.load(context, identifier);
+		return result;
+	}
+
+	/**
+	 * Set value of Item_TestSet
+	 * @param item_testset
+	 */
+	public final void setItem_TestSet(testmodule.proxies.TestSet item_testset)
+	{
+		setItem_TestSet(getContext(), item_testset);
+	}
+
+	/**
+	 * Set value of Item_TestSet
+	 * @param context
+	 * @param item_testset
+	 */
+	public final void setItem_TestSet(com.mendix.systemwideinterfaces.core.IContext context, testmodule.proxies.TestSet item_testset)
+	{
+		if (item_testset == null)
+			getMendixObject().setValue(context, MemberNames.Item_TestSet.toString(), null);
+		else
+			getMendixObject().setValue(context, MemberNames.Item_TestSet.toString(), item_testset.getMendixObject().getId());
 	}
 
 	/**

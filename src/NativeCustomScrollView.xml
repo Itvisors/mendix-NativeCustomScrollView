@@ -8,15 +8,30 @@
     <icon/>
     <properties>
         <propertyGroup caption="General">
-            <property key="scrollToTopTriggerAttr" type="attribute">
-                <caption>Scroll to top</caption>
-                <description>Update the date in your logic to make the widget scroll to top. No boolean because turning if off would trigger another render</description>
+            <property key="triggerAttr" type="attribute">
+                <caption>Trigger date</caption>
+                <description>Update the date in your logic to make the widget scroll. No boolean because turning if off would trigger another render</description>
                 <attributeTypes>
                     <attributeType name="DateTime"/>
                 </attributeTypes>
             </property>
-            <property key="content" type="widgets">
-                <caption>Content</caption>
+            <property key="scrollToIdAttr" type="attribute" required="false">
+                <caption>Scroll to item</caption>
+                <description>When showing a list iof items, set the GUID of the item that should be scrolled into view.</description>
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
+            </property>
+            <property key="content" type="widgets" required="false">
+                <caption>Single content</caption>
+                <description>Optional. Content placed here will be show at the top of the scrollview.</description>
+            </property>
+            <property key="ds" type="datasource" isList="true" required="false">
+                <caption>Data source</caption>
+                <description>To display a list of items, set the datasource and the list content.</description>
+            </property>
+            <property key="dsContent" type="widgets" dataSource="ds" required="false">
+                <caption>List content</caption>
                 <description></description>
             </property>
         </propertyGroup>

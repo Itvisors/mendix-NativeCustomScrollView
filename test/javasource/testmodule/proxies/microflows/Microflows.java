@@ -20,6 +20,12 @@ public class Microflows
 		params.put("Block", _block == null ? null : _block.getMendixObject());
 		Core.microflowCall("TestModule.ACT_Block_GenerateItems").withParams(params).execute(context);
 	}
+	public static void aCT_Block_NewItem(IContext context, testmodule.proxies.Block _block)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("Block", _block == null ? null : _block.getMendixObject());
+		Core.microflowCall("TestModule.ACT_Block_NewItem").withParams(params).execute(context);
+	}
 	public static void aCT_Block_SaveNew(IContext context, testmodule.proxies.Block _block)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();

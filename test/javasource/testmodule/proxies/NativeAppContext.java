@@ -21,8 +21,10 @@ public class NativeAppContext
 	public enum MemberNames
 	{
 		ScrollToTopTrigger("ScrollToTopTrigger"),
+		ScrollToGuid("ScrollToGuid"),
 		NativeAppContext_TestSet("TestModule.NativeAppContext_TestSet"),
-		CurrentBlock("TestModule.CurrentBlock");
+		CurrentBlock("TestModule.CurrentBlock"),
+		NativeAppContext_Item_ScrollTo("TestModule.NativeAppContext_Item_ScrollTo");
 
 		private java.lang.String metaName;
 
@@ -146,6 +148,42 @@ public class NativeAppContext
 	}
 
 	/**
+	 * @return value of ScrollToGuid
+	 */
+	public final java.lang.String getScrollToGuid()
+	{
+		return getScrollToGuid(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of ScrollToGuid
+	 */
+	public final java.lang.String getScrollToGuid(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.ScrollToGuid.toString());
+	}
+
+	/**
+	 * Set value of ScrollToGuid
+	 * @param scrolltoguid
+	 */
+	public final void setScrollToGuid(java.lang.String scrolltoguid)
+	{
+		setScrollToGuid(getContext(), scrolltoguid);
+	}
+
+	/**
+	 * Set value of ScrollToGuid
+	 * @param context
+	 * @param scrolltoguid
+	 */
+	public final void setScrollToGuid(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String scrolltoguid)
+	{
+		getMendixObject().setValue(context, MemberNames.ScrollToGuid.toString(), scrolltoguid);
+	}
+
+	/**
 	 * @return value of NativeAppContext_TestSet
 	 */
 	public final testmodule.proxies.TestSet getNativeAppContext_TestSet() throws com.mendix.core.CoreException
@@ -229,6 +267,49 @@ public class NativeAppContext
 			getMendixObject().setValue(context, MemberNames.CurrentBlock.toString(), null);
 		else
 			getMendixObject().setValue(context, MemberNames.CurrentBlock.toString(), currentblock.getMendixObject().getId());
+	}
+
+	/**
+	 * @return value of NativeAppContext_Item_ScrollTo
+	 */
+	public final testmodule.proxies.Item getNativeAppContext_Item_ScrollTo() throws com.mendix.core.CoreException
+	{
+		return getNativeAppContext_Item_ScrollTo(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of NativeAppContext_Item_ScrollTo
+	 */
+	public final testmodule.proxies.Item getNativeAppContext_Item_ScrollTo(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		testmodule.proxies.Item result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.NativeAppContext_Item_ScrollTo.toString());
+		if (identifier != null)
+			result = testmodule.proxies.Item.load(context, identifier);
+		return result;
+	}
+
+	/**
+	 * Set value of NativeAppContext_Item_ScrollTo
+	 * @param nativeappcontext_item_scrollto
+	 */
+	public final void setNativeAppContext_Item_ScrollTo(testmodule.proxies.Item nativeappcontext_item_scrollto)
+	{
+		setNativeAppContext_Item_ScrollTo(getContext(), nativeappcontext_item_scrollto);
+	}
+
+	/**
+	 * Set value of NativeAppContext_Item_ScrollTo
+	 * @param context
+	 * @param nativeappcontext_item_scrollto
+	 */
+	public final void setNativeAppContext_Item_ScrollTo(com.mendix.systemwideinterfaces.core.IContext context, testmodule.proxies.Item nativeappcontext_item_scrollto)
+	{
+		if (nativeappcontext_item_scrollto == null)
+			getMendixObject().setValue(context, MemberNames.NativeAppContext_Item_ScrollTo.toString(), null);
+		else
+			getMendixObject().setValue(context, MemberNames.NativeAppContext_Item_ScrollTo.toString(), nativeappcontext_item_scrollto.getMendixObject().getId());
 	}
 
 	/**
