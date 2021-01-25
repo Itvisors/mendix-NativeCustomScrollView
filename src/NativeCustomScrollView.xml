@@ -22,6 +22,11 @@
                     <attributeType name="String"/>
                 </attributeTypes>
             </property>
+            <property key="animateScroll" type="expression" required="false">
+                <caption>Animate scroll</caption>
+                <description></description>
+                <returnType type="Boolean" />
+            </property>
             <property key="content" type="widgets" required="false">
                 <caption>Single content</caption>
                 <description>Optional. Content placed here will be show at the top of the scrollview.</description>

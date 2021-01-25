@@ -4,13 +4,14 @@
  * @author Mendix UI Content Team
  */
 import { ComponentType, ReactNode } from "react";
-import { EditableValue, ListValue, ListWidgetValue } from "mendix";
+import { DynamicValue, EditableValue, ListValue, ListWidgetValue } from "mendix";
 
 export interface NativeCustomScrollViewProps<Style> {
     name: string;
     style: Style[];
     triggerAttr: EditableValue<Date>;
     scrollToIdAttr?: EditableValue<string>;
+    animateScroll?: DynamicValue<boolean>;
     content?: ReactNode;
     ds?: ListValue;
     dsContent?: ListWidgetValue;
@@ -21,6 +22,7 @@ export interface NativeCustomScrollViewPreviewProps {
     style: string;
     triggerAttr: string;
     scrollToIdAttr: string;
+    animateScroll: string;
     content: { widgetCount: number; renderer: ComponentType };
     ds: {} | null;
     dsContent: { widgetCount: number; renderer: ComponentType };

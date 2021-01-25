@@ -5,11 +5,12 @@ import { LayoutRectangle, ScrollView } from "react-native";
 import { mergeNativeStyles } from "@mendix/pluggable-widgets-tools";
 
 import { CustomStyle } from "../NativeCustomScrollView";
-import { EditableValue, ListValue, ObjectItem, ValueStatus } from "mendix";
+import { DynamicValue, EditableValue, ListValue, ObjectItem, ValueStatus } from "mendix";
 
 export interface CustomScrollViewProps {
     triggerAttr: EditableValue<Date>;
     scrollToIdAttr?: EditableValue<string>;
+    animateScroll?: DynamicValue<boolean>;
     content: ReactNode;
     ds?: ListValue;
     dsContent?: (item: ObjectItem) => ReactNode;
@@ -41,7 +42,7 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
 
     render(): ReactNode {
         console.info("CustomScrollView.render");
-        const { content, triggerAttr } = this.props;
+        const { animateScroll, content, triggerAttr } = this.props;
         if (triggerAttr && triggerAttr.status === ValueStatus.Available) {
             if (!this.previousDate || triggerAttr.value?.getTime() !== this.previousDate?.getTime()) {
                 console.info("CustomScrollView.render scrollTo");
@@ -63,7 +64,11 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
                         console.info("CustomScrollView scrollTo setTimeout no item ID");
                     }
                     if (this.scrollViewRef.current) {
-                        this.scrollViewRef.current.scrollTo({ x: 0, y: scrollToY, animated: false });
+                        this.scrollViewRef.current.scrollTo({
+                            x: 0,
+                            y: scrollToY,
+                            animated: !!animateScroll?.value
+                        });
                     }
                 }, 0);
             }

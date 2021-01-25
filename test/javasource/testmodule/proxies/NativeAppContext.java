@@ -22,6 +22,7 @@ public class NativeAppContext
 	{
 		ScrollToTopTrigger("ScrollToTopTrigger"),
 		ScrollToGuid("ScrollToGuid"),
+		AnimateScroll("AnimateScroll"),
 		NativeAppContext_TestSet("TestModule.NativeAppContext_TestSet"),
 		CurrentBlock("TestModule.CurrentBlock"),
 		NativeAppContext_Item_ScrollTo("TestModule.NativeAppContext_Item_ScrollTo");
@@ -181,6 +182,42 @@ public class NativeAppContext
 	public final void setScrollToGuid(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String scrolltoguid)
 	{
 		getMendixObject().setValue(context, MemberNames.ScrollToGuid.toString(), scrolltoguid);
+	}
+
+	/**
+	 * @return value of AnimateScroll
+	 */
+	public final java.lang.Boolean getAnimateScroll()
+	{
+		return getAnimateScroll(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of AnimateScroll
+	 */
+	public final java.lang.Boolean getAnimateScroll(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Boolean) getMendixObject().getValue(context, MemberNames.AnimateScroll.toString());
+	}
+
+	/**
+	 * Set value of AnimateScroll
+	 * @param animatescroll
+	 */
+	public final void setAnimateScroll(java.lang.Boolean animatescroll)
+	{
+		setAnimateScroll(getContext(), animatescroll);
+	}
+
+	/**
+	 * Set value of AnimateScroll
+	 * @param context
+	 * @param animatescroll
+	 */
+	public final void setAnimateScroll(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean animatescroll)
+	{
+		getMendixObject().setValue(context, MemberNames.AnimateScroll.toString(), animatescroll);
 	}
 
 	/**
