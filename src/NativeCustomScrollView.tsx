@@ -12,16 +12,15 @@ export interface CustomStyle extends Style {
 
 export class NativeCustomScrollView extends Component<NativeCustomScrollViewProps<CustomStyle>> {
     render(): ReactNode {
-        const { animateScroll, triggerAttr, scrollToIdAttr, content, ds, dsContent, style } = this.props;
         return (
             <CustomScrollView
-                triggerAttr={triggerAttr}
-                scrollToIdAttr={scrollToIdAttr}
-                animateScroll={animateScroll}
-                content={content}
-                ds={ds}
-                dsContent={dsContent}
-                style={style}
+                triggerAttr={this.props.triggerAttr}
+                scrollToIdAttr={this.props.scrollToIdAttr}
+                animateScroll={this.props.animateScroll}
+                content={this.props.content}
+                ds={this.props.ds}
+                dsContent={this.props.dsContent}
+                style={this.props.style}
             />
         );
     }

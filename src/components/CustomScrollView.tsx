@@ -41,27 +41,21 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
     }
 
     render(): ReactNode {
-        console.info("CustomScrollView.render");
         const { animateScroll, content, triggerAttr } = this.props;
         if (triggerAttr && triggerAttr.status === ValueStatus.Available) {
             if (!this.previousDate || triggerAttr.value?.getTime() !== this.previousDate?.getTime()) {
-                console.info("CustomScrollView.render scrollTo");
                 this.previousDate = triggerAttr.value;
                 setTimeout(() => {
                     const { scrollToIdAttr } = this.props;
                     let scrollToY = 0;
                     if (scrollToIdAttr && scrollToIdAttr.status === ValueStatus.Available && scrollToIdAttr.value) {
                         const itemId = scrollToIdAttr.value;
-                        console.info("CustomScrollView scrollTo setTimeout item id " + itemId);
                         const mapItem = this.itemMap.get(scrollToIdAttr.value);
                         if (mapItem) {
-                            console.info("CustomScrollView item id " + itemId + " found, y: " + mapItem.layout.y);
                             scrollToY = mapItem.layout.y;
                         } else {
-                            console.info("CustomScrollView item id " + itemId + " not found in map");
+                            console.warn("CustomScrollView item id " + itemId + " not found in map");
                         }
-                    } else {
-                        console.info("CustomScrollView scrollTo setTimeout no item ID");
                     }
                     if (this.scrollViewRef.current) {
                         this.scrollViewRef.current.scrollTo({
@@ -91,7 +85,6 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
         return ds.items.map(item => (
             <DatasourceItem key={item.id} itemId={item.id} content={dsContent(item)} onLayout={this.onLayout} />
         ));
-        // return ds.items.map(item => <View key={item.id}>{dsContent(item)}</View>);
     }
 
     onLayout(itemId: string, layout: LayoutRectangle): void {

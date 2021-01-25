@@ -23,6 +23,7 @@ public class NativeAppContext
 		ScrollToTopTrigger("ScrollToTopTrigger"),
 		ScrollToGuid("ScrollToGuid"),
 		AnimateScroll("AnimateScroll"),
+		CloseBeforeScroll("CloseBeforeScroll"),
 		NativeAppContext_TestSet("TestModule.NativeAppContext_TestSet"),
 		CurrentBlock("TestModule.CurrentBlock"),
 		NativeAppContext_Item_ScrollTo("TestModule.NativeAppContext_Item_ScrollTo");
@@ -218,6 +219,42 @@ public class NativeAppContext
 	public final void setAnimateScroll(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean animatescroll)
 	{
 		getMendixObject().setValue(context, MemberNames.AnimateScroll.toString(), animatescroll);
+	}
+
+	/**
+	 * @return value of CloseBeforeScroll
+	 */
+	public final java.lang.Boolean getCloseBeforeScroll()
+	{
+		return getCloseBeforeScroll(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of CloseBeforeScroll
+	 */
+	public final java.lang.Boolean getCloseBeforeScroll(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Boolean) getMendixObject().getValue(context, MemberNames.CloseBeforeScroll.toString());
+	}
+
+	/**
+	 * Set value of CloseBeforeScroll
+	 * @param closebeforescroll
+	 */
+	public final void setCloseBeforeScroll(java.lang.Boolean closebeforescroll)
+	{
+		setCloseBeforeScroll(getContext(), closebeforescroll);
+	}
+
+	/**
+	 * Set value of CloseBeforeScroll
+	 * @param context
+	 * @param closebeforescroll
+	 */
+	public final void setCloseBeforeScroll(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean closebeforescroll)
+	{
+		getMendixObject().setValue(context, MemberNames.CloseBeforeScroll.toString(), closebeforescroll);
 	}
 
 	/**
