@@ -21,7 +21,7 @@ public class NativeAppContext
 	public enum MemberNames
 	{
 		ScrollToTopTrigger("ScrollToTopTrigger"),
-		ScrollToGuid("ScrollToGuid"),
+		ScrollToID("ScrollToID"),
 		AnimateScroll("AnimateScroll"),
 		CloseBeforeScroll("CloseBeforeScroll"),
 		NativeAppContext_TestSet("TestModule.NativeAppContext_TestSet"),
@@ -150,39 +150,39 @@ public class NativeAppContext
 	}
 
 	/**
-	 * @return value of ScrollToGuid
+	 * @return value of ScrollToID
 	 */
-	public final java.lang.String getScrollToGuid()
+	public final java.lang.String getScrollToID()
 	{
-		return getScrollToGuid(getContext());
+		return getScrollToID(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of ScrollToGuid
+	 * @return value of ScrollToID
 	 */
-	public final java.lang.String getScrollToGuid(com.mendix.systemwideinterfaces.core.IContext context)
+	public final java.lang.String getScrollToID(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		return (java.lang.String) getMendixObject().getValue(context, MemberNames.ScrollToGuid.toString());
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.ScrollToID.toString());
 	}
 
 	/**
-	 * Set value of ScrollToGuid
-	 * @param scrolltoguid
+	 * Set value of ScrollToID
+	 * @param scrolltoid
 	 */
-	public final void setScrollToGuid(java.lang.String scrolltoguid)
+	public final void setScrollToID(java.lang.String scrolltoid)
 	{
-		setScrollToGuid(getContext(), scrolltoguid);
+		setScrollToID(getContext(), scrolltoid);
 	}
 
 	/**
-	 * Set value of ScrollToGuid
+	 * Set value of ScrollToID
 	 * @param context
-	 * @param scrolltoguid
+	 * @param scrolltoid
 	 */
-	public final void setScrollToGuid(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String scrolltoguid)
+	public final void setScrollToID(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String scrolltoid)
 	{
-		getMendixObject().setValue(context, MemberNames.ScrollToGuid.toString(), scrolltoguid);
+		getMendixObject().setValue(context, MemberNames.ScrollToID.toString(), scrolltoid);
 	}
 
 	/**

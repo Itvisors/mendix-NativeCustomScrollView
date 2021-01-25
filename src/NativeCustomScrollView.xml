@@ -8,6 +8,15 @@
     <icon/>
     <properties>
         <propertyGroup caption="General">
+            <property key="contentType" type="enumeration" defaultValue="basic">
+                <caption>Content type</caption>
+                <description></description>
+                <enumerationValues>
+                    <enumerationValue key="basic">Basic</enumerationValue>
+                    <enumerationValue key="list">List</enumerationValue>
+                    <enumerationValue key="section">Section</enumerationValue>
+                </enumerationValues>
+            </property>
             <property key="triggerAttr" type="attribute">
                 <caption>Trigger date</caption>
                 <description>Update the date in your logic to make the widget scroll. No boolean because turning if off would trigger another render</description>
@@ -22,9 +31,9 @@
             </property>
         </propertyGroup>
         <propertyGroup caption="Basic">
-            <property key="content" type="widgets" required="false">
+            <property key="basicContent" type="widgets" required="false">
                 <caption>Basic content</caption>
-                <description>Content placed here will be show at the top of the scrollview.</description>
+                <description></description>
             </property>
         </propertyGroup>
         <propertyGroup caption="List">
@@ -38,7 +47,34 @@
             </property>
             <property key="scrollToIdAttr" type="attribute" required="false">
                 <caption>Scroll to item</caption>
-                <description>When showing a list iof items, set the GUID of the item that should be scrolled into view.</description>
+                <description>Set the GUID of the item that should be scrolled into view.</description>
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Sections">
+            <property key="sectionContainerList" type="object" isList="true" required="false">
+                <caption>Section containers</caption>
+                <description></description>
+                <properties>
+                    <propertyGroup caption="General">
+                        <property key="sectionContainerID" type="expression">
+                            <caption>Container ID</caption>
+                            <description>Set a key value to use for scrolling the section into view</description>
+                            <returnType type="String" />
+                        </property>
+                        <property key="sectionContent" type="widgets">
+                            <caption>Section content</caption>
+                            <description></description>
+                        </property>
+                    </propertyGroup>
+
+                </properties>
+            </property>
+            <property key="scrollToSectionAttr" type="attribute" required="false">
+                <caption>Scroll to section</caption>
+                <description>Set the ID of the section that should be scrolled into view.</description>
                 <attributeTypes>
                     <attributeType name="String"/>
                 </attributeTypes>

@@ -1,19 +1,22 @@
 import React, { Component, ReactNode, createElement } from "react";
-import { DatasourceItem } from "./DatasourceItem";
+import { ContentItem } from "./ContentItem";
 import { LayoutRectangle, ScrollView } from "react-native";
 
 import { mergeNativeStyles } from "@mendix/pluggable-widgets-tools";
-
+import { ContentTypeEnum, SectionContainerListType } from "../../typings/NativeCustomScrollViewProps";
 import { CustomStyle } from "../NativeCustomScrollView";
 import { DynamicValue, EditableValue, ListValue, ObjectItem, ValueStatus } from "mendix";
 
 export interface CustomScrollViewProps {
+    contentType: ContentTypeEnum;
     triggerAttr: EditableValue<Date>;
     scrollToIdAttr?: EditableValue<string>;
     animateScroll?: DynamicValue<boolean>;
-    content: ReactNode;
+    basicContent: ReactNode;
     ds?: ListValue;
     dsContent?: (item: ObjectItem) => ReactNode;
+    sectionContainerList: SectionContainerListType[];
+    scrollToSectionAttr?: EditableValue<string>;
     style: CustomStyle[];
 }
 
@@ -41,36 +44,62 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
     }
 
     render(): ReactNode {
-        const { animateScroll, content, triggerAttr } = this.props;
+        const { basicContent, contentType, ds, sectionContainerList } = this.props;
+        switch (contentType) {
+            case "list":
+                if (!ds) {
+                    console.error("Native Custom Scroll View: Specify the datasource for list content");
+                    return null;
+                }
+                break;
+
+            case "section":
+                if (!sectionContainerList || sectionContainerList.length === 0) {
+                    console.error("Native Custom Scroll View: Add at least one section.");
+                    return null;
+                }
+                break;
+
+            default:
+                if (!basicContent) {
+                    console.error("Native Custom Scroll View: Add content to the basic content drop zone");
+                    return null;
+                }
+                break;
+        }
+
+        const { triggerAttr } = this.props;
         if (triggerAttr && triggerAttr.status === ValueStatus.Available) {
             if (!this.previousDate || triggerAttr.value?.getTime() !== this.previousDate?.getTime()) {
                 this.previousDate = triggerAttr.value;
                 setTimeout(() => {
-                    const { scrollToIdAttr } = this.props;
                     let scrollToY = 0;
-                    if (scrollToIdAttr && scrollToIdAttr.status === ValueStatus.Available && scrollToIdAttr.value) {
-                        const itemId = scrollToIdAttr.value;
-                        const mapItem = this.itemMap.get(scrollToIdAttr.value);
+                    const itemId = this.getScrollToId();
+                    if (itemId) {
+                        const mapItem = this.itemMap.get(itemId);
                         if (mapItem) {
                             scrollToY = mapItem.layout.y;
                         } else {
-                            console.warn("CustomScrollView item id " + itemId + " not found in map");
+                            console.error("CustomScrollView item id " + itemId + " not found in map");
                         }
                     }
                     if (this.scrollViewRef.current) {
                         this.scrollViewRef.current.scrollTo({
                             x: 0,
                             y: scrollToY,
-                            animated: !!animateScroll?.value
+                            animated: !!this.props.animateScroll?.value
                         });
                     }
                 }, 0);
             }
         }
+
+        // Render the scrollview with the chosen content type. Basic content is always rendered, may be used as header.
         return (
             <ScrollView ref={this.scrollViewRef} style={this.styles.container}>
-                {content}
-                {this.renderDatasourceItems()}
+                {basicContent}
+                {contentType === "list" ? this.renderDatasourceItems() : null}
+                {contentType === "section" ? this.renderSections() : null}
             </ScrollView>
         );
     }
@@ -83,8 +112,52 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
         }
 
         return ds.items.map(item => (
-            <DatasourceItem key={item.id} itemId={item.id} content={dsContent(item)} onLayout={this.onLayout} />
+            <ContentItem key={item.id} itemId={item.id} content={dsContent(item)} onLayout={this.onLayout} />
         ));
+    }
+
+    renderSections(): ReactNode[] {
+        const { sectionContainerList } = this.props;
+
+        if (!sectionContainerList) {
+            return [];
+        }
+
+        return sectionContainerList.map((sectionItem, index) => {
+            const { sectionContainerID } = sectionItem;
+            if (!sectionContainerID || sectionContainerID.status !== ValueStatus.Available) {
+                return null;
+            }
+            if (!sectionContainerID.value) {
+                console.error("Native Custom Scroll View: Section with index " + index + " has no section ID.");
+                return null;
+            }
+            // Force into a string.
+            const itemId = "" + sectionItem.sectionContainerID.value;
+            return (
+                <ContentItem
+                    key={itemId}
+                    itemId={itemId}
+                    content={sectionItem.sectionContent}
+                    onLayout={this.onLayout}
+                />
+            );
+        });
+    }
+
+    getScrollToId(): string | undefined {
+        const { contentType } = this.props;
+
+        switch (contentType) {
+            case "list":
+                return this.props.scrollToIdAttr?.value;
+
+            case "section":
+                return this.props.scrollToSectionAttr?.value;
+
+            default:
+                return undefined;
+        }
     }
 
     onLayout(itemId: string, layout: LayoutRectangle): void {
