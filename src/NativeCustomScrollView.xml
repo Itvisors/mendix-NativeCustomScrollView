@@ -15,22 +15,19 @@
                     <attributeType name="DateTime"/>
                 </attributeTypes>
             </property>
-            <property key="scrollToIdAttr" type="attribute" required="false">
-                <caption>Scroll to item</caption>
-                <description>When showing a list iof items, set the GUID of the item that should be scrolled into view.</description>
-                <attributeTypes>
-                    <attributeType name="String"/>
-                </attributeTypes>
-            </property>
             <property key="animateScroll" type="expression" required="false">
                 <caption>Animate scroll</caption>
                 <description></description>
                 <returnType type="Boolean" />
             </property>
+        </propertyGroup>
+        <propertyGroup caption="Basic">
             <property key="content" type="widgets" required="false">
-                <caption>Single content</caption>
-                <description>Optional. Content placed here will be show at the top of the scrollview.</description>
+                <caption>Basic content</caption>
+                <description>Content placed here will be show at the top of the scrollview.</description>
             </property>
+        </propertyGroup>
+        <propertyGroup caption="List">
             <property key="ds" type="datasource" isList="true" required="false">
                 <caption>Data source</caption>
                 <description>To display a list of items, set the datasource and the list content.</description>
@@ -38,6 +35,13 @@
             <property key="dsContent" type="widgets" dataSource="ds" required="false">
                 <caption>List content</caption>
                 <description></description>
+            </property>
+            <property key="scrollToIdAttr" type="attribute" required="false">
+                <caption>Scroll to item</caption>
+                <description>When showing a list iof items, set the GUID of the item that should be scrolled into view.</description>
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
             </property>
         </propertyGroup>
     </properties>

@@ -10,20 +10,20 @@ export interface NativeCustomScrollViewProps<Style> {
     name: string;
     style: Style[];
     triggerAttr: EditableValue<Date>;
-    scrollToIdAttr?: EditableValue<string>;
     animateScroll?: DynamicValue<boolean>;
     content?: ReactNode;
     ds?: ListValue;
     dsContent?: ListWidgetValue;
+    scrollToIdAttr?: EditableValue<string>;
 }
 
 export interface NativeCustomScrollViewPreviewProps {
     class: string;
     style: string;
     triggerAttr: string;
-    scrollToIdAttr: string;
     animateScroll: string;
     content: { widgetCount: number; renderer: ComponentType };
     ds: {} | null;
     dsContent: { widgetCount: number; renderer: ComponentType };
+    scrollToIdAttr: string;
 }
