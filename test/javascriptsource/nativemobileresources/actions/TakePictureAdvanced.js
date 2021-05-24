@@ -6,9 +6,9 @@
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
 import { Big } from "big.js";
-import { Alert, Linking, NativeModules } from "react-native";
-import ImagePicker from "react-native-image-picker";
-import { getLocales } from "react-native-localize";
+import { NativeModules, Alert, Linking } from 'react-native';
+import ImagePicker from 'react-native-image-picker';
+import { getLocales } from 'react-native-localize';
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
@@ -41,6 +41,7 @@ export async function TakePictureAdvanced(picture, pictureSource, pictureQuality
                 if (!response || !response.uri) {
                     return resolve(resultObject);
                 }
+                // eslint-disable-next-line no-useless-escape
                 const fileName = response.fileName ? response.fileName : /[^\/]*$/.exec(response.uri)[0];
                 storeFile(picture, response.uri).then(pictureTaken => {
                     resultObject.set("PictureTaken", pictureTaken);
@@ -109,7 +110,6 @@ export async function TakePictureAdvanced(picture, pictureSource, pictureQuality
             });
         });
     }
-    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     function getPictureMethod() {
         const source = pictureSource ? pictureSource : "either";
         switch (source) {
@@ -122,12 +122,10 @@ export async function TakePictureAdvanced(picture, pictureSource, pictureQuality
                 return ImagePicker.showImagePicker;
         }
     }
-    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     function getOptions() {
         const { maxWidth, maxHeight } = getPictureQuality();
         const [language] = getLocales().map(local => local.languageCode);
         const isDutch = language === "nl";
-
         return {
             mediaType: "photo",
             maxWidth,
@@ -205,7 +203,6 @@ export async function TakePictureAdvanced(picture, pictureSource, pictureQuality
             { text: "Settings", onPress: () => Linking.openURL("app-settings:") }
         ], { cancelable: false });
     }
-    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     function createMxObject(entity) {
         return new Promise((resolve, reject) => {
             mx.data.create({

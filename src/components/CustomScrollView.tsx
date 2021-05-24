@@ -5,7 +5,7 @@ import { LayoutRectangle, ScrollView } from "react-native";
 import { mergeNativeStyles } from "@mendix/pluggable-widgets-tools";
 import { ContentTypeEnum, SectionContainerListType } from "../../typings/NativeCustomScrollViewProps";
 import { CustomStyle } from "../NativeCustomScrollView";
-import { DynamicValue, EditableValue, ListValue, ObjectItem, ValueStatus } from "mendix";
+import { DynamicValue, EditableValue, ListValue, ListWidgetValue, ValueStatus } from "mendix";
 
 export interface CustomScrollViewProps {
     contentType: ContentTypeEnum;
@@ -14,7 +14,7 @@ export interface CustomScrollViewProps {
     animateScroll?: DynamicValue<boolean>;
     basicContent: ReactNode;
     ds?: ListValue;
-    dsContent?: (item: ObjectItem) => ReactNode;
+    dsContent?: ListWidgetValue;
     sectionContainerList: SectionContainerListType[];
     scrollToSectionAttr?: EditableValue<string>;
     style: CustomStyle[];
@@ -112,7 +112,7 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
         }
 
         return ds.items.map(item => (
-            <ContentItem key={item.id} itemId={item.id} content={dsContent(item)} onLayout={this.onLayout} />
+            <ContentItem key={item.id} itemId={item.id} content={dsContent.get(item)} onLayout={this.onLayout} />
         ));
     }
 

@@ -5,14 +5,16 @@
   "description": "Mendix native custom scroll view",
   "copyright": "ITvisors 2021",
   "author": "Marcel Groeneweg",
+  "engines": {
+    "node": ">=12"
+  },
   "config": {
     "projectPath": "./test/"
   },
   "packagePath": "itvisors",
   "scripts": {
-    "start": "npm run dev",
+    "start": "pluggable-widgets-tools start:native",
     "build": "pluggable-widgets-tools build:native",
-    "dev": "pluggable-widgets-tools start:native",
     "lint": "pluggable-widgets-tools lint",
     "lint:fix": "pluggable-widgets-tools lint:fix",
     "prerelease": "npm run lint",
@@ -23,10 +25,10 @@
     "url": "https://github.com/Marcel Groeneweg/nativecustomscrollview/issues"
   },
   "devDependencies": {
-    "@mendix/pluggable-widgets-tools": "^8.14.0",
-    "@types/big.js": "^4.0.5",
-    "@types/react": "~16.9.0",
-    "@types/react-native": "~0.61.23"
+    "@mendix/pluggable-widgets-tools": "^9.0.0",
+    "@types/big.js": "^6.0.2",
+    "@types/react": "~17.0.1",
+    "@types/react-native": "~0.63.52"
   },
   "dependencies": {}
 }

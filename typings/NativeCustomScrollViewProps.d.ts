@@ -15,7 +15,7 @@ export interface SectionContainerListType {
 
 export interface SectionContainerListPreviewType {
     sectionContainerID: string;
-    sectionContent: { widgetCount: number; renderer: ComponentType };
+    sectionContent: { widgetCount: number; renderer: ComponentType<{caption?: string}> };
 }
 
 export interface NativeCustomScrollViewProps<Style> {
@@ -38,9 +38,9 @@ export interface NativeCustomScrollViewPreviewProps {
     contentType: ContentTypeEnum;
     triggerAttr: string;
     animateScroll: string;
-    basicContent: { widgetCount: number; renderer: ComponentType };
+    basicContent: { widgetCount: number; renderer: ComponentType<{caption?: string}> };
     ds: {} | null;
-    dsContent: { widgetCount: number; renderer: ComponentType };
+    dsContent: { widgetCount: number; renderer: ComponentType<{caption?: string}> };
     scrollToIdAttr: string;
     sectionContainerList: SectionContainerListPreviewType[];
     scrollToSectionAttr: string;

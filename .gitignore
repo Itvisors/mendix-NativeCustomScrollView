@@ -1,4 +1,5 @@
 test/deployment/
+test/GPUCache/
 test/.classpath
 test/.project
 test/theme/.sass-cache/
@@ -11,4 +12,3 @@ node_modules/
 *.bak
 .idea/
 *DS_Store*
-
