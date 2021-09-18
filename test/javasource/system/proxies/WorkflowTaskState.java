@@ -9,6 +9,7 @@ public enum WorkflowTaskState
 	Initialized(new java.lang.String[][] { new java.lang.String[] { "en_US", "Initialized" } }),
 	Targeted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Targeted" } }),
 	Starting(new java.lang.String[][] { new java.lang.String[] { "en_US", "Starting" } }),
+	Paused(new java.lang.String[][] { new java.lang.String[] { "en_US", "Paused" } }),
 	InProgress(new java.lang.String[][] { new java.lang.String[] { "en_US", "In Progress" } }),
 	Completed(new java.lang.String[][] { new java.lang.String[] { "en_US", "Completed" } }),
 	Aborted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Aborted" } }),

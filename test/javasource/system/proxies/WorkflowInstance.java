@@ -25,6 +25,8 @@ public class WorkflowInstance
 		StartTime("StartTime"),
 		EndTime("EndTime"),
 		DueDate("DueDate"),
+		CanBeRestarted("CanBeRestarted"),
+		CanBeContinued("CanBeContinued"),
 		State("State"),
 		Reason("Reason"),
 		WorkflowInstance_WorkflowDefinition("System.WorkflowInstance_WorkflowDefinition"),
@@ -301,6 +303,78 @@ public class WorkflowInstance
 	public final void setDueDate(com.mendix.systemwideinterfaces.core.IContext context, java.util.Date duedate)
 	{
 		getMendixObject().setValue(context, MemberNames.DueDate.toString(), duedate);
+	}
+
+	/**
+	 * @return value of CanBeRestarted
+	 */
+	public final java.lang.Boolean getCanBeRestarted()
+	{
+		return getCanBeRestarted(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of CanBeRestarted
+	 */
+	public final java.lang.Boolean getCanBeRestarted(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Boolean) getMendixObject().getValue(context, MemberNames.CanBeRestarted.toString());
+	}
+
+	/**
+	 * Set value of CanBeRestarted
+	 * @param canberestarted
+	 */
+	public final void setCanBeRestarted(java.lang.Boolean canberestarted)
+	{
+		setCanBeRestarted(getContext(), canberestarted);
+	}
+
+	/**
+	 * Set value of CanBeRestarted
+	 * @param context
+	 * @param canberestarted
+	 */
+	public final void setCanBeRestarted(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean canberestarted)
+	{
+		getMendixObject().setValue(context, MemberNames.CanBeRestarted.toString(), canberestarted);
+	}
+
+	/**
+	 * @return value of CanBeContinued
+	 */
+	public final java.lang.Boolean getCanBeContinued()
+	{
+		return getCanBeContinued(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of CanBeContinued
+	 */
+	public final java.lang.Boolean getCanBeContinued(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Boolean) getMendixObject().getValue(context, MemberNames.CanBeContinued.toString());
+	}
+
+	/**
+	 * Set value of CanBeContinued
+	 * @param canbecontinued
+	 */
+	public final void setCanBeContinued(java.lang.Boolean canbecontinued)
+	{
+		setCanBeContinued(getContext(), canbecontinued);
+	}
+
+	/**
+	 * Set value of CanBeContinued
+	 * @param context
+	 * @param canbecontinued
+	 */
+	public final void setCanBeContinued(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean canbecontinued)
+	{
+		getMendixObject().setValue(context, MemberNames.CanBeContinued.toString(), canbecontinued);
 	}
 
 	/**
