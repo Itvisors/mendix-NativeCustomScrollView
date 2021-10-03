@@ -7,7 +7,7 @@
 // Other code you write will be lost the next time you deploy the project.
 import { Big } from "big.js";
 import { NativeModules, Alert, Platform, Linking } from 'react-native';
-import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+import { launchImageLibrary, launchCamera } from 'react-native-image-picker';
 import { getLocales } from 'react-native-localize';
 
 // BEGIN EXTRA CODE
