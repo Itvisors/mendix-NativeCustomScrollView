@@ -3,7 +3,7 @@
  * WARNING: All changes made to this file will be overwritten
  * @author Mendix UI Content Team
  */
-import { ComponentType, ReactNode } from "react";
+import { ComponentType, CSSProperties, ReactNode } from "react";
 import { DynamicValue, EditableValue, ListValue, ListWidgetValue } from "mendix";
 
 export type ContentTypeEnum = "basic" | "list" | "section";
@@ -33,8 +33,10 @@ export interface NativeCustomScrollViewProps<Style> {
 }
 
 export interface NativeCustomScrollViewPreviewProps {
-    class: string;
+    className: string;
     style: string;
+    styleObject?: CSSProperties;
+    readOnly: boolean;
     contentType: ContentTypeEnum;
     triggerAttr: string;
     animateScroll: string;
