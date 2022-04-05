@@ -24,7 +24,7 @@ public class Block
 		Description("Description"),
 		Block_TestSet("TestNativeCustomScrollView.Block_TestSet");
 
-		private java.lang.String metaName;
+		private final java.lang.String metaName;
 
 		MemberNames(java.lang.String s)
 		{
@@ -40,15 +40,17 @@ public class Block
 
 	public Block(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		this(context, com.mendix.core.Core.instantiate(context, "TestNativeCustomScrollView.Block"));
+		this(context, com.mendix.core.Core.instantiate(context, entityName));
 	}
 
 	protected Block(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject blockMendixObject)
 	{
-		if (blockMendixObject == null)
+		if (blockMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
-		if (!com.mendix.core.Core.isSubClassOf("TestNativeCustomScrollView.Block", blockMendixObject.getType()))
-			throw new java.lang.IllegalArgumentException("The given object is not a TestNativeCustomScrollView.Block");
+		}
+		if (!com.mendix.core.Core.isSubClassOf(entityName, blockMendixObject.getType())) {
+			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
+		}	
 
 		this.blockMendixObject = blockMendixObject;
 		this.context = context;
@@ -66,6 +68,9 @@ public class Block
 	/**
 	 * Initialize a proxy using context (recommended). This context will be used for security checking when the get- and set-methods without context parameters are called.
 	 * The get- and set-methods with context parameter should be used when for instance sudo access is necessary (IContext.createSudoClone() can be used to obtain sudo access).
+	 * @param context The context to be used
+	 * @param mendixObject The Mendix object for the new instance
+	 * @return a new instance of this proxy class
 	 */
 	public static testnativecustomscrollview.proxies.Block initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
@@ -80,14 +85,16 @@ public class Block
 
 	public static java.util.List<testnativecustomscrollview.proxies.Block> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
 	{
-		java.util.List<testnativecustomscrollview.proxies.Block> result = new java.util.ArrayList<testnativecustomscrollview.proxies.Block>();
-		for (com.mendix.systemwideinterfaces.core.IMendixObject obj : com.mendix.core.Core.retrieveXPathQuery(context, "//TestNativeCustomScrollView.Block" + xpathConstraint))
-			result.add(testnativecustomscrollview.proxies.Block.initialize(context, obj));
-		return result;
+		return com.mendix.core.Core.createXPathQuery(String.format("//%1$s%2$s", entityName, xpathConstraint))
+			.execute(context)
+			.stream()
+			.map(obj -> testnativecustomscrollview.proxies.Block.initialize(context, obj))
+			.collect(java.util.stream.Collectors.toList());
 	}
 
 	/**
 	 * Commit the changes made on this proxy object.
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final void commit() throws com.mendix.core.CoreException
 	{
@@ -96,6 +103,7 @@ public class Block
 
 	/**
 	 * Commit the changes made on this proxy object using the specified context.
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final void commit(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
@@ -190,6 +198,7 @@ public class Block
 	}
 
 	/**
+	 * @throws com.mendix.core.CoreException
 	 * @return value of Block_TestSet
 	 */
 	public final testnativecustomscrollview.proxies.TestSet getBlock_TestSet() throws com.mendix.core.CoreException
@@ -200,13 +209,15 @@ public class Block
 	/**
 	 * @param context
 	 * @return value of Block_TestSet
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final testnativecustomscrollview.proxies.TestSet getBlock_TestSet(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
 		testnativecustomscrollview.proxies.TestSet result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Block_TestSet.toString());
-		if (identifier != null)
+		if (identifier != null) {
 			result = testnativecustomscrollview.proxies.TestSet.load(context, identifier);
+		}
 		return result;
 	}
 
@@ -226,10 +237,11 @@ public class Block
 	 */
 	public final void setBlock_TestSet(com.mendix.systemwideinterfaces.core.IContext context, testnativecustomscrollview.proxies.TestSet block_testset)
 	{
-		if (block_testset == null)
+		if (block_testset == null) {
 			getMendixObject().setValue(context, MemberNames.Block_TestSet.toString(), null);
-		else
+		} else {
 			getMendixObject().setValue(context, MemberNames.Block_TestSet.toString(), block_testset.getMendixObject().getId());
+		}
 	}
 
 	/**
@@ -251,9 +263,9 @@ public class Block
 	@java.lang.Override
 	public boolean equals(Object obj)
 	{
-		if (obj == this)
+		if (obj == this) {
 			return true;
-
+		}
 		if (obj != null && getClass().equals(obj.getClass()))
 		{
 			final testnativecustomscrollview.proxies.Block that = (testnativecustomscrollview.proxies.Block) obj;
@@ -273,7 +285,7 @@ public class Block
 	 */
 	public static java.lang.String getType()
 	{
-		return "TestNativeCustomScrollView.Block";
+		return entityName;
 	}
 
 	/**

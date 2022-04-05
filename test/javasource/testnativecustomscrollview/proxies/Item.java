@@ -25,7 +25,7 @@ public class Item
 		Item_Block("TestNativeCustomScrollView.Item_Block"),
 		Item_TestSet("TestNativeCustomScrollView.Item_TestSet");
 
-		private java.lang.String metaName;
+		private final java.lang.String metaName;
 
 		MemberNames(java.lang.String s)
 		{
@@ -41,15 +41,17 @@ public class Item
 
 	public Item(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		this(context, com.mendix.core.Core.instantiate(context, "TestNativeCustomScrollView.Item"));
+		this(context, com.mendix.core.Core.instantiate(context, entityName));
 	}
 
 	protected Item(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject itemMendixObject)
 	{
-		if (itemMendixObject == null)
+		if (itemMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
-		if (!com.mendix.core.Core.isSubClassOf("TestNativeCustomScrollView.Item", itemMendixObject.getType()))
-			throw new java.lang.IllegalArgumentException("The given object is not a TestNativeCustomScrollView.Item");
+		}
+		if (!com.mendix.core.Core.isSubClassOf(entityName, itemMendixObject.getType())) {
+			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
+		}	
 
 		this.itemMendixObject = itemMendixObject;
 		this.context = context;
@@ -67,6 +69,9 @@ public class Item
 	/**
 	 * Initialize a proxy using context (recommended). This context will be used for security checking when the get- and set-methods without context parameters are called.
 	 * The get- and set-methods with context parameter should be used when for instance sudo access is necessary (IContext.createSudoClone() can be used to obtain sudo access).
+	 * @param context The context to be used
+	 * @param mendixObject The Mendix object for the new instance
+	 * @return a new instance of this proxy class
 	 */
 	public static testnativecustomscrollview.proxies.Item initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
@@ -81,14 +86,16 @@ public class Item
 
 	public static java.util.List<testnativecustomscrollview.proxies.Item> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
 	{
-		java.util.List<testnativecustomscrollview.proxies.Item> result = new java.util.ArrayList<testnativecustomscrollview.proxies.Item>();
-		for (com.mendix.systemwideinterfaces.core.IMendixObject obj : com.mendix.core.Core.retrieveXPathQuery(context, "//TestNativeCustomScrollView.Item" + xpathConstraint))
-			result.add(testnativecustomscrollview.proxies.Item.initialize(context, obj));
-		return result;
+		return com.mendix.core.Core.createXPathQuery(String.format("//%1$s%2$s", entityName, xpathConstraint))
+			.execute(context)
+			.stream()
+			.map(obj -> testnativecustomscrollview.proxies.Item.initialize(context, obj))
+			.collect(java.util.stream.Collectors.toList());
 	}
 
 	/**
 	 * Commit the changes made on this proxy object.
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final void commit() throws com.mendix.core.CoreException
 	{
@@ -97,6 +104,7 @@ public class Item
 
 	/**
 	 * Commit the changes made on this proxy object using the specified context.
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final void commit(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
@@ -191,6 +199,7 @@ public class Item
 	}
 
 	/**
+	 * @throws com.mendix.core.CoreException
 	 * @return value of Item_Block
 	 */
 	public final testnativecustomscrollview.proxies.Block getItem_Block() throws com.mendix.core.CoreException
@@ -201,13 +210,15 @@ public class Item
 	/**
 	 * @param context
 	 * @return value of Item_Block
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final testnativecustomscrollview.proxies.Block getItem_Block(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
 		testnativecustomscrollview.proxies.Block result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Item_Block.toString());
-		if (identifier != null)
+		if (identifier != null) {
 			result = testnativecustomscrollview.proxies.Block.load(context, identifier);
+		}
 		return result;
 	}
 
@@ -227,13 +238,15 @@ public class Item
 	 */
 	public final void setItem_Block(com.mendix.systemwideinterfaces.core.IContext context, testnativecustomscrollview.proxies.Block item_block)
 	{
-		if (item_block == null)
+		if (item_block == null) {
 			getMendixObject().setValue(context, MemberNames.Item_Block.toString(), null);
-		else
+		} else {
 			getMendixObject().setValue(context, MemberNames.Item_Block.toString(), item_block.getMendixObject().getId());
+		}
 	}
 
 	/**
+	 * @throws com.mendix.core.CoreException
 	 * @return value of Item_TestSet
 	 */
 	public final testnativecustomscrollview.proxies.TestSet getItem_TestSet() throws com.mendix.core.CoreException
@@ -244,13 +257,15 @@ public class Item
 	/**
 	 * @param context
 	 * @return value of Item_TestSet
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final testnativecustomscrollview.proxies.TestSet getItem_TestSet(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
 		testnativecustomscrollview.proxies.TestSet result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Item_TestSet.toString());
-		if (identifier != null)
+		if (identifier != null) {
 			result = testnativecustomscrollview.proxies.TestSet.load(context, identifier);
+		}
 		return result;
 	}
 
@@ -270,10 +285,11 @@ public class Item
 	 */
 	public final void setItem_TestSet(com.mendix.systemwideinterfaces.core.IContext context, testnativecustomscrollview.proxies.TestSet item_testset)
 	{
-		if (item_testset == null)
+		if (item_testset == null) {
 			getMendixObject().setValue(context, MemberNames.Item_TestSet.toString(), null);
-		else
+		} else {
 			getMendixObject().setValue(context, MemberNames.Item_TestSet.toString(), item_testset.getMendixObject().getId());
+		}
 	}
 
 	/**
@@ -295,9 +311,9 @@ public class Item
 	@java.lang.Override
 	public boolean equals(Object obj)
 	{
-		if (obj == this)
+		if (obj == this) {
 			return true;
-
+		}
 		if (obj != null && getClass().equals(obj.getClass()))
 		{
 			final testnativecustomscrollview.proxies.Item that = (testnativecustomscrollview.proxies.Item) obj;
@@ -317,7 +333,7 @@ public class Item
 	 */
 	public static java.lang.String getType()
 	{
-		return "TestNativeCustomScrollView.Item";
+		return entityName;
 	}
 
 	/**

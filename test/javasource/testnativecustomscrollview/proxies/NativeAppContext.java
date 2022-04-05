@@ -28,7 +28,7 @@ public class NativeAppContext
 		CurrentBlock("TestNativeCustomScrollView.CurrentBlock"),
 		NativeAppContext_Item_ScrollTo("TestNativeCustomScrollView.NativeAppContext_Item_ScrollTo");
 
-		private java.lang.String metaName;
+		private final java.lang.String metaName;
 
 		MemberNames(java.lang.String s)
 		{
@@ -44,15 +44,17 @@ public class NativeAppContext
 
 	public NativeAppContext(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		this(context, com.mendix.core.Core.instantiate(context, "TestNativeCustomScrollView.NativeAppContext"));
+		this(context, com.mendix.core.Core.instantiate(context, entityName));
 	}
 
 	protected NativeAppContext(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject nativeAppContextMendixObject)
 	{
-		if (nativeAppContextMendixObject == null)
+		if (nativeAppContextMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
-		if (!com.mendix.core.Core.isSubClassOf("TestNativeCustomScrollView.NativeAppContext", nativeAppContextMendixObject.getType()))
-			throw new java.lang.IllegalArgumentException("The given object is not a TestNativeCustomScrollView.NativeAppContext");
+		}
+		if (!com.mendix.core.Core.isSubClassOf(entityName, nativeAppContextMendixObject.getType())) {
+			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
+		}	
 
 		this.nativeAppContextMendixObject = nativeAppContextMendixObject;
 		this.context = context;
@@ -70,6 +72,9 @@ public class NativeAppContext
 	/**
 	 * Initialize a proxy using context (recommended). This context will be used for security checking when the get- and set-methods without context parameters are called.
 	 * The get- and set-methods with context parameter should be used when for instance sudo access is necessary (IContext.createSudoClone() can be used to obtain sudo access).
+	 * @param context The context to be used
+	 * @param mendixObject The Mendix object for the new instance
+	 * @return a new instance of this proxy class
 	 */
 	public static testnativecustomscrollview.proxies.NativeAppContext initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
@@ -84,6 +89,7 @@ public class NativeAppContext
 
 	/**
 	 * Commit the changes made on this proxy object.
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final void commit() throws com.mendix.core.CoreException
 	{
@@ -92,6 +98,7 @@ public class NativeAppContext
 
 	/**
 	 * Commit the changes made on this proxy object using the specified context.
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final void commit(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
@@ -258,6 +265,7 @@ public class NativeAppContext
 	}
 
 	/**
+	 * @throws com.mendix.core.CoreException
 	 * @return value of NativeAppContext_TestSet
 	 */
 	public final testnativecustomscrollview.proxies.TestSet getNativeAppContext_TestSet() throws com.mendix.core.CoreException
@@ -268,13 +276,15 @@ public class NativeAppContext
 	/**
 	 * @param context
 	 * @return value of NativeAppContext_TestSet
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final testnativecustomscrollview.proxies.TestSet getNativeAppContext_TestSet(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
 		testnativecustomscrollview.proxies.TestSet result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.NativeAppContext_TestSet.toString());
-		if (identifier != null)
+		if (identifier != null) {
 			result = testnativecustomscrollview.proxies.TestSet.load(context, identifier);
+		}
 		return result;
 	}
 
@@ -294,13 +304,15 @@ public class NativeAppContext
 	 */
 	public final void setNativeAppContext_TestSet(com.mendix.systemwideinterfaces.core.IContext context, testnativecustomscrollview.proxies.TestSet nativeappcontext_testset)
 	{
-		if (nativeappcontext_testset == null)
+		if (nativeappcontext_testset == null) {
 			getMendixObject().setValue(context, MemberNames.NativeAppContext_TestSet.toString(), null);
-		else
+		} else {
 			getMendixObject().setValue(context, MemberNames.NativeAppContext_TestSet.toString(), nativeappcontext_testset.getMendixObject().getId());
+		}
 	}
 
 	/**
+	 * @throws com.mendix.core.CoreException
 	 * @return value of CurrentBlock
 	 */
 	public final testnativecustomscrollview.proxies.Block getCurrentBlock() throws com.mendix.core.CoreException
@@ -311,13 +323,15 @@ public class NativeAppContext
 	/**
 	 * @param context
 	 * @return value of CurrentBlock
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final testnativecustomscrollview.proxies.Block getCurrentBlock(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
 		testnativecustomscrollview.proxies.Block result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.CurrentBlock.toString());
-		if (identifier != null)
+		if (identifier != null) {
 			result = testnativecustomscrollview.proxies.Block.load(context, identifier);
+		}
 		return result;
 	}
 
@@ -337,13 +351,15 @@ public class NativeAppContext
 	 */
 	public final void setCurrentBlock(com.mendix.systemwideinterfaces.core.IContext context, testnativecustomscrollview.proxies.Block currentblock)
 	{
-		if (currentblock == null)
+		if (currentblock == null) {
 			getMendixObject().setValue(context, MemberNames.CurrentBlock.toString(), null);
-		else
+		} else {
 			getMendixObject().setValue(context, MemberNames.CurrentBlock.toString(), currentblock.getMendixObject().getId());
+		}
 	}
 
 	/**
+	 * @throws com.mendix.core.CoreException
 	 * @return value of NativeAppContext_Item_ScrollTo
 	 */
 	public final testnativecustomscrollview.proxies.Item getNativeAppContext_Item_ScrollTo() throws com.mendix.core.CoreException
@@ -354,13 +370,15 @@ public class NativeAppContext
 	/**
 	 * @param context
 	 * @return value of NativeAppContext_Item_ScrollTo
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final testnativecustomscrollview.proxies.Item getNativeAppContext_Item_ScrollTo(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
 		testnativecustomscrollview.proxies.Item result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.NativeAppContext_Item_ScrollTo.toString());
-		if (identifier != null)
+		if (identifier != null) {
 			result = testnativecustomscrollview.proxies.Item.load(context, identifier);
+		}
 		return result;
 	}
 
@@ -380,10 +398,11 @@ public class NativeAppContext
 	 */
 	public final void setNativeAppContext_Item_ScrollTo(com.mendix.systemwideinterfaces.core.IContext context, testnativecustomscrollview.proxies.Item nativeappcontext_item_scrollto)
 	{
-		if (nativeappcontext_item_scrollto == null)
+		if (nativeappcontext_item_scrollto == null) {
 			getMendixObject().setValue(context, MemberNames.NativeAppContext_Item_ScrollTo.toString(), null);
-		else
+		} else {
 			getMendixObject().setValue(context, MemberNames.NativeAppContext_Item_ScrollTo.toString(), nativeappcontext_item_scrollto.getMendixObject().getId());
+		}
 	}
 
 	/**
@@ -405,9 +424,9 @@ public class NativeAppContext
 	@java.lang.Override
 	public boolean equals(Object obj)
 	{
-		if (obj == this)
+		if (obj == this) {
 			return true;
-
+		}
 		if (obj != null && getClass().equals(obj.getClass()))
 		{
 			final testnativecustomscrollview.proxies.NativeAppContext that = (testnativecustomscrollview.proxies.NativeAppContext) obj;
@@ -427,7 +446,7 @@ public class NativeAppContext
 	 */
 	public static java.lang.String getType()
 	{
-		return "TestNativeCustomScrollView.NativeAppContext";
+		return entityName;
 	}
 
 	/**
