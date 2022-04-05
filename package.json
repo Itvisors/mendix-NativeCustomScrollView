@@ -1,13 +1,14 @@
 {
   "name": "nativecustomscrollview",
   "widgetName": "NativeCustomScrollView",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Mendix native custom scroll view",
   "copyright": "ITvisors 2021",
   "author": "Marcel Groeneweg",
   "engines": {
     "node": ">=12"
   },
+  "license": "Apache-2.0",
   "config": {
     "projectPath": "./test/"
   },
@@ -19,10 +20,6 @@
     "lint:fix": "pluggable-widgets-tools lint:fix",
     "prerelease": "npm run lint",
     "release": "pluggable-widgets-tools release:native"
-  },
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/Marcel Groeneweg/nativecustomscrollview/issues"
   },
   "devDependencies": {
     "@mendix/pluggable-widgets-tools": "^9.10.0",
