@@ -44,29 +44,7 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
     }
 
     render(): ReactNode {
-        const { basicContent, contentType, ds, sectionContainerList } = this.props;
-        switch (contentType) {
-            case "list":
-                if (!ds) {
-                    console.error("Native Custom Scroll View: Specify the datasource for list content");
-                    return null;
-                }
-                break;
-
-            case "section":
-                if (!sectionContainerList || sectionContainerList.length === 0) {
-                    console.error("Native Custom Scroll View: Add at least one section.");
-                    return null;
-                }
-                break;
-
-            default:
-                if (!basicContent) {
-                    console.error("Native Custom Scroll View: Add content to the basic content drop zone");
-                    return null;
-                }
-                break;
-        }
+        const { basicContent, contentType } = this.props;
 
         const { triggerAttr } = this.props;
         if (triggerAttr && triggerAttr.status === ValueStatus.Available) {
