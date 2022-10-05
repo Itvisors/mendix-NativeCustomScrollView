@@ -6,6 +6,8 @@ Scroll view with option to scroll to top, a datasource item or a section.
 - Show a list of items and scroll to top or to an item
 - Divide a large page into sections and scroll to each section 
 
+![Scroll to top](/doc-images/ScrollToTop.gif "Scroll to top") ![Sections](/doc-images/Sections.gif "Sections")
+
 ## Usage
 - Widget needs a context object.
 - Drop the widget in a dataview
