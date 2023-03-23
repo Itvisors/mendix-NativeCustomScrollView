@@ -24,6 +24,14 @@
                     <attributeType name="DateTime"/>
                 </attributeTypes>
             </property>
+            <property key="scrollDirection" type="enumeration" defaultValue="vertical">
+                <caption>Scroll direction</caption>
+                <description/>
+                <enumerationValues>
+                    <enumerationValue key="vertical">Vertical</enumerationValue>
+                    <enumerationValue key="horizontal">Horizontal</enumerationValue>
+                </enumerationValues>
+            </property>
             <property key="animateScroll" type="expression" required="false">
                 <caption>Animate scroll</caption>
                 <description></description>

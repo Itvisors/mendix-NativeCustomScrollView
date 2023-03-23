@@ -1,7 +1,7 @@
 {
   "name": "nativecustomscrollview",
   "widgetName": "NativeCustomScrollView",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Mendix native custom scroll view",
   "copyright": "ITvisors 2021",
   "author": "Marcel Groeneweg",
@@ -10,7 +10,7 @@
   },
   "license": "Apache-2.0",
   "config": {
-    "projectPath": "./test/"
+    "projectPath": "C://MendixProjects/Naviva Kraamzorg - Digital Birthcare-main/"
   },
   "packagePath": "itvisors",
   "scripts": {

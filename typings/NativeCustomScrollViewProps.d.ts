@@ -8,6 +8,8 @@ import { DynamicValue, EditableValue, ListValue, ListWidgetValue } from "mendix"
 
 export type ContentTypeEnum = "basic" | "list" | "section";
 
+export type ScrollDirectionEnum = "vertical" | "horizontal";
+
 export interface SectionContainerListType {
     sectionContainerID: DynamicValue<string>;
     sectionContent: ReactNode;
@@ -23,6 +25,7 @@ export interface NativeCustomScrollViewProps<Style> {
     style: Style[];
     contentType: ContentTypeEnum;
     triggerAttr: EditableValue<Date>;
+    scrollDirection: ScrollDirectionEnum;
     animateScroll?: DynamicValue<boolean>;
     basicContent?: ReactNode;
     ds?: ListValue;
@@ -39,6 +42,7 @@ export interface NativeCustomScrollViewPreviewProps {
     readOnly: boolean;
     contentType: ContentTypeEnum;
     triggerAttr: string;
+    scrollDirection: ScrollDirectionEnum;
     animateScroll: string;
     basicContent: { widgetCount: number; renderer: ComponentType<{ caption?: string }> };
     ds: {} | { type: string } | null;
