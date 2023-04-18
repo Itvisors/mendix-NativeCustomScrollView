@@ -90,7 +90,13 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
         }
 
         return ds.items.map(item => (
-            <ContentItem key={item.id} itemId={item.id} content={dsContent.get(item)} onLayout={this.onLayout} />
+            <ContentItem
+                type={"item"}
+                key={item.id}
+                itemId={item.id}
+                content={dsContent.get(item)}
+                onLayout={this.onLayout}
+            />
         ));
     }
 
@@ -114,6 +120,7 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
             const itemId = "" + sectionItem.sectionContainerID.value;
             return (
                 <ContentItem
+                    type={"section"}
                     key={itemId}
                     itemId={itemId}
                     content={sectionItem.sectionContent}
