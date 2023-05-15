@@ -10,7 +10,7 @@
   },
   "license": "Apache-2.0",
   "config": {
-    "projectPath": "C://MendixProjects/Naviva Kraamzorg - Digital Birthcare-main/"
+    "projectPath": "./test/"
   },
   "packagePath": "itvisors",
   "scripts": {
