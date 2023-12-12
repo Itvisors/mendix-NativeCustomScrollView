@@ -21,6 +21,7 @@ export interface CustomScrollViewProps {
     sectionContainerList: SectionContainerListType[];
     scrollToSectionAttr?: EditableValue<string>;
     style: CustomStyle[];
+    testID: string;
 }
 
 interface MapItem {
@@ -75,7 +76,7 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
 
     updateScrollPosition(): void {
         const { triggerAttr } = this.props;
-        if (triggerAttr && triggerAttr.status === ValueStatus.Available && this.itemMap.size > 0) {
+        if (triggerAttr && triggerAttr.status === ValueStatus.Available) {
             if (!this.previousDate || triggerAttr.value?.getTime() !== this.previousDate?.getTime()) {
                 this.previousDate = triggerAttr.value;
                 setTimeout(() => {
@@ -114,6 +115,8 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
             <ContentItem
                 key={item.id}
                 itemId={item.id}
+                itemType="item"
+                testID={this.props.testID}
                 content={dsContent.get(item)}
                 style={this.styles.item}
                 onLayout={this.onLayout}
@@ -143,6 +146,8 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
                 <ContentItem
                     key={itemId}
                     itemId={itemId}
+                    itemType="section"
+                    testID={this.props.testID}
                     content={sectionItem.sectionContent}
                     onLayout={this.onLayout}
                     style={this.styles.item}

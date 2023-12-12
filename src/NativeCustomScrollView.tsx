@@ -26,6 +26,7 @@ export class NativeCustomScrollView extends Component<NativeCustomScrollViewProp
                 sectionContainerList={this.props.sectionContainerList}
                 scrollToSectionAttr={this.props.scrollToSectionAttr}
                 style={this.props.style}
+                testID={this.props.name}
             />
         );
     }
