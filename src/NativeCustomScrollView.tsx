@@ -8,6 +8,7 @@ import { NativeCustomScrollViewProps } from "../typings/NativeCustomScrollViewPr
 
 export interface CustomStyle extends Style {
     container: ViewStyle;
+    item: ViewStyle;
 }
 
 export class NativeCustomScrollView extends Component<NativeCustomScrollViewProps<CustomStyle>> {
@@ -19,6 +20,7 @@ export class NativeCustomScrollView extends Component<NativeCustomScrollViewProp
                 scrollToIdAttr={this.props.scrollToIdAttr}
                 animateScroll={this.props.animateScroll}
                 basicContent={this.props.basicContent}
+                scrollDirection={this.props.scrollDirection}
                 ds={this.props.ds}
                 dsContent={this.props.dsContent}
                 sectionContainerList={this.props.sectionContainerList}

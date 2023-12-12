@@ -7,12 +7,15 @@ import { ContentTypeEnum, SectionContainerListType } from "../../typings/NativeC
 import { CustomStyle } from "../NativeCustomScrollView";
 import { DynamicValue, EditableValue, ListValue, ListWidgetValue, ValueStatus } from "mendix";
 
+type direction = "vertical" | "horizontal";
+
 export interface CustomScrollViewProps {
     contentType: ContentTypeEnum;
     triggerAttr: EditableValue<Date>;
     scrollToIdAttr?: EditableValue<string>;
     animateScroll?: DynamicValue<boolean>;
     basicContent: ReactNode;
+    scrollDirection: direction;
     ds?: ListValue;
     dsContent?: ListWidgetValue;
     sectionContainerList: SectionContainerListType[];
@@ -24,46 +27,73 @@ interface MapItem {
     layout: LayoutRectangle;
 }
 
-const defaultStyle: CustomStyle = {
-    container: {
-        flex: 1,
-        flexDirection: "column"
-    }
+const defaultStyle = function (vertical: direction): CustomStyle {
+    return {
+        container: {
+            flex: 1,
+            flexDirection: vertical === "vertical" ? "column" : "row"
+        },
+        item: {}
+    };
 };
 
 export class CustomScrollView extends Component<CustomScrollViewProps> {
     private scrollViewRef = React.createRef<ScrollView>();
     private previousDate?: Date = undefined;
     private itemMap: Map<string, MapItem> = new Map();
-    private readonly styles = mergeNativeStyles(defaultStyle, this.props.style);
+    private styles: CustomStyle;
 
     constructor(props: CustomScrollViewProps) {
         super(props);
-
+        this.styles = mergeNativeStyles(defaultStyle(props.scrollDirection), this.props.style);
+        // console.log("styles: " + JSON.stringify(this.styles));
         this.onLayout = this.onLayout.bind(this);
     }
 
     render(): ReactNode {
         const { basicContent, contentType } = this.props;
 
+        this.updateScrollPosition();
+
+        // Render the scrollview with the chosen content type. Basic content is always rendered, may be used as header.
+        return (
+            <ScrollView
+                ref={this.scrollViewRef}
+                style={this.styles.container}
+                horizontal={this.props.scrollDirection === "horizontal"}
+                onContentSizeChange={() => {
+                    // console.log("cs layout");
+                    this.updateScrollPosition();
+                }}
+            >
+                {basicContent}
+                {contentType === "list" ? this.renderDataSourceItems() : null}
+                {contentType === "section" ? this.renderSections() : null}
+            </ScrollView>
+        );
+    }
+
+    updateScrollPosition(): void {
         const { triggerAttr } = this.props;
-        if (triggerAttr && triggerAttr.status === ValueStatus.Available) {
+        if (triggerAttr && triggerAttr.status === ValueStatus.Available && this.itemMap.size > 0) {
             if (!this.previousDate || triggerAttr.value?.getTime() !== this.previousDate?.getTime()) {
                 this.previousDate = triggerAttr.value;
                 setTimeout(() => {
+                    let scrollToX = 0;
                     let scrollToY = 0;
                     const itemId = this.getScrollToId();
                     if (itemId) {
                         const mapItem = this.itemMap.get(itemId);
                         if (mapItem) {
-                            scrollToY = mapItem.layout.y;
+                            scrollToX = this.props.scrollDirection === "horizontal" ? mapItem.layout.x : 0;
+                            scrollToY = this.props.scrollDirection === "vertical" ? mapItem.layout.y : 0;
                         } else {
                             console.error("CustomScrollView item id " + itemId + " not found in map");
                         }
                     }
                     if (this.scrollViewRef.current) {
                         this.scrollViewRef.current.scrollTo({
-                            x: 0,
+                            x: scrollToX,
                             y: scrollToY,
                             animated: !!this.props.animateScroll?.value
                         });
@@ -71,18 +101,9 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
                 }, 0);
             }
         }
-
-        // Render the scrollview with the chosen content type. Basic content is always rendered, may be used as header.
-        return (
-            <ScrollView ref={this.scrollViewRef} style={this.styles.container}>
-                {basicContent}
-                {contentType === "list" ? this.renderDatasourceItems() : null}
-                {contentType === "section" ? this.renderSections() : null}
-            </ScrollView>
-        );
     }
 
-    renderDatasourceItems(): ReactNode[] {
+    renderDataSourceItems(): ReactNode[] {
         const { ds, dsContent } = this.props;
 
         if (!ds?.items || ds.status !== ValueStatus.Available || !dsContent) {
@@ -90,7 +111,13 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
         }
 
         return ds.items.map(item => (
-            <ContentItem key={item.id} itemId={item.id} content={dsContent.get(item)} onLayout={this.onLayout} />
+            <ContentItem
+                key={item.id}
+                itemId={item.id}
+                content={dsContent.get(item)}
+                style={this.styles.item}
+                onLayout={this.onLayout}
+            />
         ));
     }
 
@@ -118,6 +145,7 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
                     itemId={itemId}
                     content={sectionItem.sectionContent}
                     onLayout={this.onLayout}
+                    style={this.styles.item}
                 />
             );
         });
