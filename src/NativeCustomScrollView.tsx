@@ -21,7 +21,7 @@ export class NativeCustomScrollView extends Component<NativeCustomScrollViewProp
                 animateScroll={this.props.animateScroll}
                 basicContent={this.props.basicContent}
                 scrollDirection={this.props.scrollDirection}
-                ds={this.props.ds}
+                items={this.props.ds?.items}
                 dsContent={this.props.dsContent}
                 sectionContainerList={this.props.sectionContainerList}
                 scrollToSectionAttr={this.props.scrollToSectionAttr}
