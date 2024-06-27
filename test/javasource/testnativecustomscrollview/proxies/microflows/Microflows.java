@@ -4,44 +4,91 @@
 
 package testnativecustomscrollview.proxies.microflows;
 
-import java.util.HashMap;
-import java.util.Map;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 
-public class Microflows
+public final class Microflows
 {
 	/**
-	 * @deprecated
-	 * The default constructor of the Microflows class should not be used.
-	 * Use the static microflow invocation methods instead.
+	 * Private constructor to prevent instantiation of this class. 
 	 */
-	@java.lang.Deprecated(since = "9.12", forRemoval = true)
-	public Microflows() {}
+	private Microflows() {}
 
 	// These are the microflows for the TestNativeCustomScrollView module
-	public static void aCT_Block_GenerateItems(IContext context, testnativecustomscrollview.proxies.Block _block)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Block_GenerateItemsBuilder(
+		testnativecustomscrollview.proxies.Block _block
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Block", _block == null ? null : _block.getMendixObject());
-		Core.microflowCall("TestNativeCustomScrollView.ACT_Block_GenerateItems").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestNativeCustomScrollView.ACT_Block_GenerateItems");
+		builder = builder.withParam("Block", _block);
+		return builder;
 	}
-	public static void aCT_Block_NewItem(IContext context, testnativecustomscrollview.proxies.Block _block)
+
+	public static void aCT_Block_GenerateItems(
+		IContext context,
+		testnativecustomscrollview.proxies.Block _block
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Block", _block == null ? null : _block.getMendixObject());
-		Core.microflowCall("TestNativeCustomScrollView.ACT_Block_NewItem").withParams(params).execute(context);
+		aCT_Block_GenerateItemsBuilder(
+				_block
+			)
+			.execute(context);
 	}
-	public static void aCT_Block_SaveNew(IContext context, testnativecustomscrollview.proxies.Block _block)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Block_NewItemBuilder(
+		testnativecustomscrollview.proxies.Block _block
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Block", _block == null ? null : _block.getMendixObject());
-		Core.microflowCall("TestNativeCustomScrollView.ACT_Block_SaveNew").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestNativeCustomScrollView.ACT_Block_NewItem");
+		builder = builder.withParam("Block", _block);
+		return builder;
 	}
-	public static void aCT_TestSet_SaveNew(IContext context, testnativecustomscrollview.proxies.TestSet _testSet)
+
+	public static void aCT_Block_NewItem(
+		IContext context,
+		testnativecustomscrollview.proxies.Block _block
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("TestSet", _testSet == null ? null : _testSet.getMendixObject());
-		Core.microflowCall("TestNativeCustomScrollView.ACT_TestSet_SaveNew").withParams(params).execute(context);
+		aCT_Block_NewItemBuilder(
+				_block
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Block_SaveNewBuilder(
+		testnativecustomscrollview.proxies.Block _block
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestNativeCustomScrollView.ACT_Block_SaveNew");
+		builder = builder.withParam("Block", _block);
+		return builder;
+	}
+
+	public static void aCT_Block_SaveNew(
+		IContext context,
+		testnativecustomscrollview.proxies.Block _block
+	)
+	{
+		aCT_Block_SaveNewBuilder(
+				_block
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_TestSet_SaveNewBuilder(
+		testnativecustomscrollview.proxies.TestSet _testSet
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestNativeCustomScrollView.ACT_TestSet_SaveNew");
+		builder = builder.withParam("TestSet", _testSet);
+		return builder;
+	}
+
+	public static void aCT_TestSet_SaveNew(
+		IContext context,
+		testnativecustomscrollview.proxies.TestSet _testSet
+	)
+	{
+		aCT_TestSet_SaveNewBuilder(
+				_testSet
+			)
+			.execute(context);
 	}
 }

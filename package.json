@@ -1,7 +1,7 @@
 {
   "name": "nativecustomscrollview",
   "widgetName": "NativeCustomScrollView",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "description": "Mendix native custom scroll view",
   "copyright": "ITvisors 2021",
   "author": "Marcel Groeneweg",
@@ -22,24 +22,24 @@
     "release": "pluggable-widgets-tools release:native"
   },
   "devDependencies": {
-    "@mendix/pluggable-widgets-tools": "^9.24.0",
+    "@mendix/pluggable-widgets-tools": "^10.12.0",
     "@types/big.js": "^6.0.2"
   },
   "dependencies": {},
   "overrides": {
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.70.7",
+    "react-native": "0.72.7",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.0",
-    "@types/react-native": "0.70.7"
+    "@types/react-native": "0.72.7"
   },
   "resolutions": {
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.70.7",
+    "react-native": "0.72.7",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.0",
-    "@types/react-native": "0.70.7"
+    "@types/react-native": "0.72.7"
   }
 }
