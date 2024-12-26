@@ -44,6 +44,8 @@ export interface NativeCustomScrollViewPreviewProps {
     style: string;
     styleObject?: CSSProperties;
     readOnly: boolean;
+    renderMode: "design" | "xray" | "structure";
+    translate: (text: string) => string;
     contentType: ContentTypeEnum;
     triggerAttr: string;
     scrollDirection: ScrollDirectionEnum;
