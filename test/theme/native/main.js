@@ -1,3 +1,2 @@
 export {};
 
-export * from "./custom";
