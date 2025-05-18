@@ -17,7 +17,7 @@
                     <enumerationValue key="section">Section</enumerationValue>
                 </enumerationValues>
             </property>
-            <property key="triggerAttr" type="attribute">
+            <property key="triggerAttr" type="attribute" required="false">
                 <caption>Trigger date</caption>
                 <description>Update the date in your logic to make the widget scroll. No boolean because turning if off would trigger another render</description>
                 <attributeTypes>
@@ -37,6 +37,11 @@
                 <description></description>
                 <returnType type="Boolean" />
             </property>
+            <property key="pullToRefreshAction" type="action" required="false">
+                <caption>Pull to refresh action</caption>
+                <description>Action to be performed for Pull to refresh</description>
+            </property>
+
         </propertyGroup>
         <propertyGroup caption="Basic">
             <property key="basicContent" type="widgets" required="false">

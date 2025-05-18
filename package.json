@@ -1,7 +1,7 @@
 {
   "name": "nativecustomscrollview",
   "widgetName": "NativeCustomScrollView",
-  "version": "1.8.0",
+  "version": "2.0.0",
   "description": "Mendix native custom scroll view",
   "copyright": "ITvisors 2021",
   "author": "Marcel Groeneweg",
@@ -22,7 +22,7 @@
     "release": "pluggable-widgets-tools release:native"
   },
   "devDependencies": {
-    "@mendix/pluggable-widgets-tools": "^10.18.0",
+    "@mendix/pluggable-widgets-tools": "^10.18.2",
     "@types/big.js": "^6.0.2"
   },
   "dependencies": {},

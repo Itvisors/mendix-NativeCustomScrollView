@@ -19,6 +19,7 @@ export class NativeCustomScrollView extends Component<NativeCustomScrollViewProp
                 triggerAttr={this.props.triggerAttr}
                 scrollToIdAttr={this.props.scrollToIdAttr}
                 animateScroll={this.props.animateScroll}
+                pullToRefreshAction={this.props.pullToRefreshAction}
                 basicContent={this.props.basicContent}
                 scrollDirection={this.props.scrollDirection}
                 items={this.props.ds?.items}

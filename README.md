@@ -4,6 +4,7 @@ Scroll view with option to scroll to top, a datasource item or a section.
 ## Features
 - Scroll content back to top
 - Show a list of items and scroll to top or to an item
+- Pull to refresh on any vertical content
 - Divide a large page into sections and scroll to each section 
 
 ![Scroll to top](/doc-images/ScrollToTop.gif "Scroll to top") ![Sections](/doc-images/Sections.gif "Sections")
@@ -21,11 +22,15 @@ That is why the trigger attribute is added
 ## Basic usage
 Place content in the basic content drop zone of the widget. Everytime the trigger date is updated, the scrollview will scroll to the top.
 
+## Basic content, pull to refresh only
+No need for the trigger date to be configured, just place content in the basic content drop zone of the widget and configure the pull to refresh action
+
 ## List
 - Configure the datasource
 - Add list content
-- Configure the Scroll to item attribute if you want to scroll to a specific item.
-- Content placed in the basic content drop zone will be rendered as well.
+- Configure the Scroll to item attribute if you want to scroll to a specific item
+- Content placed in the basic content drop zone will be rendered as well
+- Optionally configure pull to refresh, vertical scroll direction only
 
 ### Scrolling to items in the list
 Set the GUID of the datasource item you want the widget to scroll into view. The item will be positioned at the top of the visible area, unless there are not enough entries coming after it to fill the visible area. In that case the list will be scrolled to the end.
@@ -41,8 +46,9 @@ If the item is not yet visible, because the object was not yet in the datasource
 ## Section
 - Add items in the section list
 - Make sure each item has a unique ID. Using an enumeration value prevents hardcoding the IDs in the logic. Use the `toString` expression function to get the enumeration key.
-- Configure the Scroll to section attribute to scroll to a specific item.
-- Content placed in the basic content drop zone will be rendered as well.
+- Configure the Scroll to section attribute to scroll to a specific item
+- Content placed in the basic content drop zone will be rendered as well
+- Optionally configure pull to refresh, vertical scroll direction only
 
 ## Issues, suggestions and feature requests
 [link to GitHub issues](https://github.com/Itvisors/mendix-NativeCustomScrollView/issues)

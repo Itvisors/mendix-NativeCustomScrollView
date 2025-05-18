@@ -4,7 +4,7 @@
  * @author Mendix Widgets Framework Team
  */
 import { ComponentType, CSSProperties, ReactNode } from "react";
-import { DynamicValue, EditableValue, ListValue, ListWidgetValue } from "mendix";
+import { ActionValue, DynamicValue, EditableValue, ListValue, ListWidgetValue } from "mendix";
 
 export type ContentTypeEnum = "basic" | "list" | "section";
 
@@ -24,9 +24,10 @@ export interface NativeCustomScrollViewProps<Style> {
     name: string;
     style: Style[];
     contentType: ContentTypeEnum;
-    triggerAttr: EditableValue<Date>;
+    triggerAttr?: EditableValue<Date>;
     scrollDirection: ScrollDirectionEnum;
     animateScroll?: DynamicValue<boolean>;
+    pullToRefreshAction?: ActionValue;
     basicContent?: ReactNode;
     ds?: ListValue;
     dsContent?: ListWidgetValue;
@@ -50,6 +51,7 @@ export interface NativeCustomScrollViewPreviewProps {
     triggerAttr: string;
     scrollDirection: ScrollDirectionEnum;
     animateScroll: string;
+    pullToRefreshAction: {} | null;
     basicContent: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
     ds: {} | { caption: string } | { type: string } | null;
     dsContent: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };

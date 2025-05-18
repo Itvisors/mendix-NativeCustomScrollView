@@ -1,3 +1,4 @@
+import { hidePropertyIn } from "@mendix/pluggable-widgets-tools";
 import { NativeCustomScrollViewPreviewProps } from "../typings/NativeCustomScrollViewProps";
 
 export type Platform = "web" | "desktop";
@@ -102,11 +103,10 @@ export function getProperties(
     defaultProperties: Properties /* , target: Platform*/
 ): Properties {
     // Do the values manipulation here to control the visibility of properties in Studio and Studio Pro conditionally.
-    /* Example
-    if (values.myProperty === "custom") {
-        delete defaultProperties.properties.myOtherProperty;
+    if (_values.scrollDirection === "horizontal") {
+        hidePropertyIn(defaultProperties, _values, "pullToRefreshAction");
     }
-    */
+
     return defaultProperties;
 }
 
@@ -121,6 +121,12 @@ export function check(values: NativeCustomScrollViewPreviewProps): Problem[] {
                     message: "Specify the datasource for list content"
                 });
             }
+            if (!values.triggerAttr) {
+                errors.push({
+                    property: "triggerAttr",
+                    message: "Trigger date is required"
+                });
+            }
             break;
 
         case "section":
@@ -128,6 +134,12 @@ export function check(values: NativeCustomScrollViewPreviewProps): Problem[] {
                 errors.push({
                     property: "sectionContainerList",
                     message: "Add at least one section"
+                });
+            }
+            if (!values.triggerAttr) {
+                errors.push({
+                    property: "triggerAttr",
+                    message: "Trigger date is required"
                 });
             }
             break;

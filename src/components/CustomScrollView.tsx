@@ -1,19 +1,20 @@
 import React, { Component, ReactNode, createElement } from "react";
 import { ContentItem } from "./ContentItem";
-import { LayoutRectangle, ScrollView } from "react-native";
+import { LayoutRectangle, RefreshControl, ScrollView } from "react-native";
 
 import { mergeNativeStyles } from "@mendix/pluggable-widgets-tools";
 import { ContentTypeEnum, SectionContainerListType } from "../../typings/NativeCustomScrollViewProps";
 import { CustomStyle } from "../NativeCustomScrollView";
-import { DynamicValue, EditableValue, ListWidgetValue, ObjectItem, ValueStatus } from "mendix";
+import { ActionValue, DynamicValue, EditableValue, ListWidgetValue, ObjectItem, ValueStatus } from "mendix";
 
 type direction = "vertical" | "horizontal";
 
 export interface CustomScrollViewProps {
     contentType: ContentTypeEnum;
-    triggerAttr: EditableValue<Date>;
+    triggerAttr?: EditableValue<Date>;
     scrollToIdAttr?: EditableValue<string>;
     animateScroll?: DynamicValue<boolean>;
+    pullToRefreshAction?: ActionValue;
     basicContent: ReactNode;
     scrollDirection: direction;
     items?: ObjectItem[];
@@ -52,7 +53,7 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
     }
 
     render(): ReactNode {
-        const { basicContent, contentType } = this.props;
+        const { basicContent, contentType, pullToRefreshAction } = this.props;
 
         this.updateScrollPosition();
 
@@ -60,6 +61,14 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
         return (
             <ScrollView
                 ref={this.scrollViewRef}
+                refreshControl={
+                    pullToRefreshAction?.canExecute ? (
+                        <RefreshControl
+                            refreshing={pullToRefreshAction.isExecuting}
+                            onRefresh={() => pullToRefreshAction.execute()}
+                        ></RefreshControl>
+                    ) : undefined
+                }
                 style={this.styles.container}
                 horizontal={this.props.scrollDirection === "horizontal"}
                 onContentSizeChange={() => {
@@ -103,6 +112,21 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
             }
         }
     }
+
+    // renderRefreshControl(): ReactNode {
+    //     const { pullToRefreshAction } = this.props;
+
+    //     if (!pullToRefreshAction || !pullToRefreshAction.canExecute) {
+    //         return null;
+    //     }
+
+    //     return (
+    //         <RefreshControl
+    //             refreshing={pullToRefreshAction.isExecuting}
+    //             onRefresh={() => pullToRefreshAction.execute()}
+    //         ></RefreshControl>
+    //     );
+    // }
 
     renderDataSourceItems(): ReactNode[] {
         const { items, dsContent } = this.props;
