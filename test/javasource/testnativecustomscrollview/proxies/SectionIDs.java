@@ -6,29 +6,27 @@ package testnativecustomscrollview.proxies;
 
 public enum SectionIDs
 {
-	Section1(new java.lang.String[][] { new java.lang.String[] { "en_US", "Section 1" } }),
-	Section2(new java.lang.String[][] { new java.lang.String[] { "en_US", "Section 2" } }),
-	Section3(new java.lang.String[][] { new java.lang.String[] { "en_US", "Section 3" } }),
-	Section4(new java.lang.String[][] { new java.lang.String[] { "en_US", "Section 4" } }),
-	Section5(new java.lang.String[][] { new java.lang.String[] { "en_US", "Section 5" } });
+	Section1("7d60be68-ad6d-47ea-80b2-669ca8d7dc64"),
+	Section2("d8fee58a-311c-4e58-9b91-d5ab2cdd5d59"),
+	Section3("f1ed5915-33fb-421f-83b4-8413b696d803"),
+	Section4("b52f00dd-5e5c-43ab-9880-797de81846cb"),
+	Section5("1c8da05d-a9e4-4815-81c4-0eb0cbbbf235");
 
-	private final java.util.Map<java.lang.String, java.lang.String> captions;
-
-	private SectionIDs(java.lang.String[][] captionStrings)
+	private final java.lang.String i18nCaptionKey;
+	
+	private SectionIDs(java.lang.String i18nCaptionKey)
 	{
-		this.captions = new java.util.HashMap<>();
-		for (java.lang.String[] captionString : captionStrings) {
-			captions.put(captionString[0], captionString[1]);
-		}
+		this.i18nCaptionKey = i18nCaptionKey;
 	}
 
 	public java.lang.String getCaption(java.lang.String languageCode)
 	{
-		return captions.getOrDefault(languageCode, "en_US");
+		String caption = com.mendix.core.Core.getInternationalizedString(languageCode, i18nCaptionKey);
+		return caption.isEmpty() ? getCaption() : caption;
 	}
 
 	public java.lang.String getCaption()
 	{
-		return captions.get("en_US");
+		return com.mendix.core.Core.getInternationalizedString("en_US", i18nCaptionKey);
 	}
 }

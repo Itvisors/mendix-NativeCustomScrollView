@@ -52,7 +52,7 @@ public class NativeAppContext implements com.mendix.systemwideinterfaces.core.IE
 		if (nativeAppContextMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, nativeAppContextMendixObject.getType())) {
+		if (!nativeAppContextMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 
