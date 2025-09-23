@@ -98,7 +98,7 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
                             scrollToX = this.props.scrollDirection === "horizontal" ? mapItem.layout.x : 0;
                             scrollToY = this.props.scrollDirection === "vertical" ? mapItem.layout.y : 0;
                         } else {
-                            console.error("CustomScrollView item id " + itemId + " not found in map");
+                            console.warn("CustomScrollView item id " + itemId + " not found in map");
                         }
                     }
                     if (this.scrollViewRef.current) {
