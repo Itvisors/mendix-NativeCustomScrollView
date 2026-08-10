@@ -1,4 +1,4 @@
-import { ReactElement, createElement, ReactNode } from "react";
+import { ReactElement, ReactNode } from "react";
 import { LayoutRectangle, View, ViewStyle } from "react-native";
 
 export interface ContentItemProps {

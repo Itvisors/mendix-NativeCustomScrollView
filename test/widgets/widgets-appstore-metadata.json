@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0",
+  "widgets": [
+    {
+      "sha-256": "9818ee6c9c6064883749f721dffbbf31c1d88021ec8552d5017912bbf361c64b",
+      "name": "Combobox",
+      "version": "2.6.2",
+      "appStoreVersionGuid": "acfc1935-5b3b-4d4b-9370-a09635e7becd"
+    },
+    {
+      "sha-256": "fb8eccf7a153da32b35ebd20d2a366f3d637ab854e6ab16dceb61309da5e17bd",
+      "name": "Image",
+      "version": "1.5.1",
+      "appStoreVersionGuid": "2ff41b6e-8f18-4c99-97fc-13e8d25738e4"
+    },
+    {
+      "sha-256": "255145c8e191fef464ccc2f8bc10d93d82b56f3a43495c812d4c92e997221e40",
+      "name": "NativeResponsiveListview",
+      "version": "3.6.0",
+      "appStoreVersionGuid": "97f615a9-200d-45d5-a35b-aadd3c9e5b13"
+    },
+    {
+      "sha-256": "d8bbc1a9bff1fc3d593d7b3d9a0c7ff27b9ee9f37a210ab3648bf45908a9f438",
+      "name": "StarRating",
+      "version": "3.1.1",
+      "appStoreVersionGuid": "d5916238-d6c1-4fc0-aecc-797f781a03ec"
+    },
+    {
+      "sha-256": "15877898803ad9a6561044fafa63477b759c47eabca81328a2b2d03c255f6e2a",
+      "name": "Switch",
+      "version": "4.1.0",
+      "appStoreVersionGuid": "ebbfc1fe-d335-4771-a7a9-2547a906ef8b"
+    },
+    {
+      "sha-256": "5b565d39721447414b5a1416417b04beb6d2a6a7c4a98e9b4acb516c633fda3a",
+      "name": "Combobox",
+      "version": "2.9.0",
+      "appStoreVersionGuid": "dce845f4-d051-4161-847c-016c01703caa"
+    },
+    {
+      "sha-256": "2d7fe7a2528fd16a8ded8b6ec18be32a300f0e4cf7264377303403d293938e5c",
+      "name": "Image",
+      "version": "1.6.0",
+      "appStoreVersionGuid": "dc44021c-8fe3-4e92-90dd-cb588bb92e04"
+    },
+    {
+      "sha-256": "b5b06bf1b11658d6bb054666d0b502110ac6051de0e339ef1655e8b71b910dc6",
+      "name": "NativeResponsiveListview",
+      "version": "5.0.0",
+      "appStoreVersionGuid": "c2608234-9654-4fc0-b4ba-855df130023c"
+    }
+  ]
+}

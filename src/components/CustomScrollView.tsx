@@ -1,4 +1,4 @@
-import React, { Component, ReactNode, createElement } from "react";
+import React, { Component, ReactNode } from "react";
 import { ContentItem } from "./ContentItem";
 import { LayoutRectangle, RefreshControl, ScrollView } from "react-native";
 

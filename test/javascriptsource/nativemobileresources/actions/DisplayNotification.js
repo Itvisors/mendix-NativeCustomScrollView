@@ -7,7 +7,7 @@
 // Other code you write will be lost the next time you deploy the project.
 import { Big } from "big.js";
 import { NativeModules, Platform } from 'react-native';
-import notifee, { AndroidImportance } from '@notifee/react-native';
+import notifee, { AndroidImportance } from 'react-native-notify-kit';
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
