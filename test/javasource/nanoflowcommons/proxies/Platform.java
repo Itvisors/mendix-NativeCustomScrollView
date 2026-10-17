@@ -6,9 +6,9 @@ package nanoflowcommons.proxies;
 
 public enum Platform
 {
-	Web("b6a87ffb-bcc2-49c7-92e4-97ee823fe4a8"),
-	Native_mobile("85deed7e-3b4f-41e9-a6af-67aa4c9068a1"),
-	Hybrid_mobile("41fcabea-02ff-48f0-a1f1-b2f624e53f7b");
+	Web("3d3bf21f-4a91-4723-96ad-f9444c48f40e"),
+	Native_mobile("798340e0-d97c-4846-910b-96b71ca64216"),
+	Hybrid_mobile("6e07213f-2021-4423-b1b8-f71972c42a50");
 
 	private final java.lang.String i18nCaptionKey;
 	

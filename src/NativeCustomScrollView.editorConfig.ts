@@ -105,6 +105,7 @@ export function getProperties(
     // Do the values manipulation here to control the visibility of properties in Studio and Studio Pro conditionally.
     if (_values.scrollDirection === "horizontal") {
         hidePropertyIn(defaultProperties, _values, "pullToRefreshAction");
+        hidePropertyIn(defaultProperties, _values, "refreshIndicatorColor");
     }
 
     return defaultProperties;

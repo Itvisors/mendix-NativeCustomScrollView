@@ -48,6 +48,24 @@
       "name": "NativeResponsiveListview",
       "version": "5.0.0",
       "appStoreVersionGuid": "c2608234-9654-4fc0-b4ba-855df130023c"
+    },
+    {
+      "sha-256": "16c96fae6f7029336903081cb78b9269a3d816388f2c607225004bd976b82ed9",
+      "name": "Image",
+      "version": "1.6.1",
+      "appStoreVersionGuid": "f65dd975-34f7-4a58-98a8-b8f486ea3c2d"
+    },
+    {
+      "sha-256": "c867970bf227f0864db8d68b0aff3124020f2359c9ecae25dd4a8e161403997e",
+      "name": "StarRating",
+      "version": "3.2.2",
+      "appStoreVersionGuid": "e6a7c177-18b6-4555-b2dd-818eefde58d8"
+    },
+    {
+      "sha-256": "57588bb7f789d94ec0a6b0f96ae4543837a5be7dfba35ed5df42a95f15a54169",
+      "name": "Switch",
+      "version": "4.3.0",
+      "appStoreVersionGuid": "d39541e5-eeac-4b35-ad61-8aa4bf85141d"
     }
   ]
 }

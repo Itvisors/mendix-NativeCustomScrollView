@@ -41,6 +41,11 @@
                 <caption>Pull to refresh action</caption>
                 <description>Action to be performed for Pull to refresh</description>
             </property>
+            <property key="refreshIndicatorColor" type="expression" required="false">
+                <caption>Refresh indicator color</caption>
+                <description>Color of the pull to refresh indicator, for example '#rrggbb'. Leave empty to use the default color. Valid values: https://reactnative.dev/docs/colors</description>
+                <returnType type="String" />
+            </property>
 
         </propertyGroup>
         <propertyGroup caption="Basic">

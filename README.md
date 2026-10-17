@@ -25,6 +25,12 @@ Place content in the basic content drop zone of the widget. Everytime the trigge
 ## Basic content, pull to refresh only
 No need for the trigger date to be configured, just place content in the basic content drop zone of the widget and configure the pull to refresh action
 
+## Pull to refresh indicator color
+Optionally set the Refresh indicator color expression to change the color of the pull to refresh indicator. The most common format is a hex value like `'#rrggbb'`, for example `'#0595db'`. 
+When the expression is not set or returns an empty value, the platform default color is used.
+
+For all valid color values, see the React Native documentation: [Color Reference](https://reactnative.dev/docs/colors)
+
 ## List
 - Configure the datasource
 - Add list content

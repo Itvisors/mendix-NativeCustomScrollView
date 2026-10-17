@@ -20,6 +20,7 @@ export class NativeCustomScrollView extends Component<NativeCustomScrollViewProp
                 scrollToIdAttr={this.props.scrollToIdAttr}
                 animateScroll={this.props.animateScroll}
                 pullToRefreshAction={this.props.pullToRefreshAction}
+                refreshIndicatorColor={this.props.refreshIndicatorColor}
                 basicContent={this.props.basicContent}
                 scrollDirection={this.props.scrollDirection}
                 items={this.props.ds?.items}

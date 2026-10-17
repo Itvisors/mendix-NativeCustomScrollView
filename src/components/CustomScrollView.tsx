@@ -15,6 +15,7 @@ export interface CustomScrollViewProps {
     scrollToIdAttr?: EditableValue<string>;
     animateScroll?: DynamicValue<boolean>;
     pullToRefreshAction?: ActionValue;
+    refreshIndicatorColor?: DynamicValue<string>;
     basicContent: ReactNode;
     scrollDirection: direction;
     items?: ObjectItem[];
@@ -54,6 +55,7 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
 
     render(): ReactNode {
         const { basicContent, contentType, pullToRefreshAction } = this.props;
+        const refreshIndicatorColor = this.getRefreshIndicatorColor();
 
         this.updateScrollPosition();
 
@@ -66,6 +68,8 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
                         <RefreshControl
                             refreshing={pullToRefreshAction.isExecuting}
                             onRefresh={() => pullToRefreshAction.execute()}
+                            tintColor={refreshIndicatorColor}
+                            colors={refreshIndicatorColor ? [refreshIndicatorColor] : undefined}
                         ></RefreshControl>
                     ) : undefined
                 }
@@ -111,6 +115,16 @@ export class CustomScrollView extends Component<CustomScrollViewProps> {
                 }, 0);
             }
         }
+    }
+
+    // Returns the refresh indicator color, undefined if not set or empty so the platform default is used.
+    getRefreshIndicatorColor(): string | undefined {
+        const { refreshIndicatorColor } = this.props;
+        if (refreshIndicatorColor?.status !== ValueStatus.Available) {
+            return undefined;
+        }
+        const color = refreshIndicatorColor.value?.trim();
+        return color ? color : undefined;
     }
 
     // renderRefreshControl(): ReactNode {

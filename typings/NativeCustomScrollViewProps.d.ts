@@ -28,6 +28,7 @@ export interface NativeCustomScrollViewProps<Style> {
     scrollDirection: ScrollDirectionEnum;
     animateScroll?: DynamicValue<boolean>;
     pullToRefreshAction?: ActionValue;
+    refreshIndicatorColor?: DynamicValue<string>;
     basicContent?: ReactNode;
     ds?: ListValue;
     dsContent?: ListWidgetValue;
@@ -52,6 +53,7 @@ export interface NativeCustomScrollViewPreviewProps {
     scrollDirection: ScrollDirectionEnum;
     animateScroll: string;
     pullToRefreshAction: {} | null;
+    refreshIndicatorColor: string;
     basicContent: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
     ds: {} | { caption: string } | { type: string } | null;
     dsContent: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
